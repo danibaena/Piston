@@ -8,7 +8,7 @@ https://api.airbnb.com/v2/users/7771271?client_id=3092nxybyb0otqw18e8nh5nty&loca
 
 https://api.airbnb.com/v2/users/
 
-To retrieve users, you need the user id first
+To retrieve users, you need the user id first and the API Key, nothing else
 
 ## Headers
 
@@ -32,7 +32,7 @@ Get
 
 ## GET Params
 
-* client_id=3092nxybyb0otqw18e8nh5nty // Test if we need this
+* client_id=3092nxybyb0otqw18e8nh5nty // IMPORTANT API Key
 * locale=es-ES // i18n
 * currency=EUR // test with USD
 * _format=v1_legacy_show

@@ -1,0 +1,10 @@
+{"get_user": {
+	"url" : "https://api.airbnb.com/v2/users/",
+	"http_method" : "GET",
+	"id" : "1",
+	"client_id" : "3092nxybyb0otqw18e8nh5nty",
+	"locale" : "es-ES",
+	"currency" : "EUR",
+	"_format" : "v1_legacy_show"
+	}
+}
