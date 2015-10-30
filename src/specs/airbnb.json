@@ -1,10 +1,48 @@
-{"get_user": {
-	"url" : "https://api.airbnb.com/v2/users/",
-	"http_method" : "GET",
-	"id" : "1",
-	"client_id" : "3092nxybyb0otqw18e8nh5nty",
-	"locale" : "es-ES",
-	"currency" : "EUR",
-	"_format" : "v1_legacy_show"
+{
+	"info": {
+		"title": "AirBnB",
+		"description": "API to retrieve different info for a given user ID",
+		"version": "1.0",
+		"author": "h4ckademy",
+		"url_base": "https://api.airbnb.com/"
+		},
+	"get_user": {
+		"url" : "v2/users/",
+		"http_method" : "GET",
+		"parameters":[
+			{
+				"name": "id",
+				"in": "path",
+				"demanded": true
+			},
+			{
+				"name":"client_id", 
+				"in": "query_string",
+				"client_id": "3092nxybyb0otqw18e8nh5nty"
+			}
+		],
+		"after": [
+			{
+				"token_save": false,
+				"user": "picture_url",
+				"user": "first_name"
+			}
+		]
+	},
+	"login": {
+		"url" : "v2/login/",
+		"http_method" : "POST",
+		"path_parameter": {
+			"required": ""
+		},
+		"query_string": {
+			"client_id" : "3092nxybyb0otqw18e8nh5nty"
+		},
+		"response": {
+			"required": "token"
+		}
+	},
+	"logout": {
+		"token": false
 	}
 }
