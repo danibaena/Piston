@@ -6,6 +6,7 @@
 		"author": "h4ckademy",
 		"url_base": "https://api.airbnb.com/"
 		},
+
 	"get_user": {
 		"url" : "v2/users/",
 		"http_method" : "GET",
@@ -16,33 +17,39 @@
 				"demanded": true
 			},
 			{
-				"name":"client_id", 
+				"name":"client_id",
 				"in": "query_string",
 				"client_id": "3092nxybyb0otqw18e8nh5nty"
 			}
 		],
-		"after": [
+		"after":
 			{
 				"token_save": false,
 				"user": "picture_url",
 				"user": "first_name"
 			}
-		]
 	},
 	"login": {
 		"url" : "v2/login/",
 		"http_method" : "POST",
-		"path_parameter": {
-			"required": ""
+		"parameters":[
+			{
+				"name": "id",
+				"demanded": true
+			},
+			{
+				"name": "password",
+				"demanded": true
+			}
+		],
+		"after": {
+			"token_save": true,
 		},
-		"query_string": {
-			"client_id" : "3092nxybyb0otqw18e8nh5nty"
-		},
-		"response": {
-			"required": "token"
+
+		"logout":{
+			"after": {
+			"token": false
+			}
 		}
-	},
-	"logout": {
-		"token": false
 	}
 }
