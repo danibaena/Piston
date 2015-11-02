@@ -43,7 +43,7 @@
 			}
 		],
 		"after": {
-			"token_save": true,
+			"token_save": true
 		},
 
 		"logout":{
