@@ -37,7 +37,7 @@
 			"after" : false,
 			"extract":[
 				"user.first_name",
-				"user.profile_url"
+				"user.picture_url"
 			]
 		},
 		"login":{

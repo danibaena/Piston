@@ -30,7 +30,6 @@ describe("Piston", function() {
     piston = new Piston();
     var specPath = "../pistonSpecs/airbnb.json";
     var specFile = piston.specParse(specPath);
-    console.log(specFile);
     var response = require("../pistonSpecs/response.json");
     var functionName = "get_user";
     piston.extractData(specFile, functionName, response);
