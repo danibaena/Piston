@@ -1,11 +1,11 @@
-describe("Piston", function() {
+describe("Piston", function(){
  var Piston = require("../lib/Piston");
  var piston = new Piston();
  var specPath;
  var specFile;
 
  describe("Piston can use a json file", function(){
-   it("Throws an error if file path is invalid",function(){
+   it("Throws an error if file path is invalid", function(){
     specPath = "";
     expect(function () {
      piston.parseSpec(specPath);
@@ -24,8 +24,9 @@ describe("Piston", function() {
     expect(piston.parseSpec(specPath)).toEqual(jasmine.any(Object));
   });
  });
+});
 
- describe("Piston can extract data from response", function(){
+/* describe("Piston can extract data from response", function(){
    it("Extracts the specified fields from a parsed json response", function(){
     piston = new Piston();
     var specPath = "../pistonSpecs/airbnb.json";
@@ -35,8 +36,4 @@ describe("Piston", function() {
     piston.extractData(specFile, functionName, response);
     //expect(piston.extractData(specFile, functionName, response)).toBe(true);
   });
- });
-
-});
-
-
+ });*/
