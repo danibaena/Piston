@@ -8,20 +8,20 @@ describe("Piston", function() {
    it("Throws an error if file path is invalid",function(){
     specPath = "";
     expect(function () {
-     piston.specParse(specPath);
+     piston.parseSpec(specPath);
    }).toThrow();
   });
 
    it("Throws an error if file extension is not json", function(){
     specPath = "../pistonSpecs/airbnb.piston";
     expect(function () {
-     piston.specParse(specPath);
+     piston.parseSpec(specPath);
    }).toThrow();
   });
 
    it("Returns a valid object", function(){
     specPath = "../pistonSpecs/airbnb.json";
-    expect(piston.specParse(specPath)).toEqual(jasmine.any(Object));
+    expect(piston.parseSpec(specPath)).toEqual(jasmine.any(Object));
   });
  });
 
@@ -29,7 +29,7 @@ describe("Piston", function() {
    it("Extracts the specified fields from a parsed json response", function(){
     piston = new Piston();
     var specPath = "../pistonSpecs/airbnb.json";
-    var specFile = piston.specParse(specPath);
+    var specFile = piston.parseSpec(specPath);
     var response = require("../pistonSpecs/response.json");
     var functionName = "get_user";
     piston.extractData(specFile, functionName, response);
