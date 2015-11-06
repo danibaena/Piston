@@ -5,7 +5,7 @@
 		"version": "1.0",
 		"author": "h4ckademy"
 	},
-	
+
 	"default": {
 		"uri": {
 			"protocol": "https:",
@@ -23,8 +23,8 @@
 		}
 	},
 
-	"functions": {
-		"get_user":{
+	"functions": [
+		{
 			"name": "get_user",
 			"path" : "v2/users/",
 			"method": "GET",
@@ -39,10 +39,12 @@
 				"user.first_name",
 				"user.picture_url"
 			]
+
 		},
-		"login":{
+		{
 			"name": "login",
 			"path" : "v2/users/"
 		}
-	}
+		]
 }
+
