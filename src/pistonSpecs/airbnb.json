@@ -6,20 +6,7 @@
         "author": "h4ckademy"
     },
     "default": {
-        "uri": {
-            "protocol": "https:",
-            "slashes": true,
-            "auth": null,
-            "host": "api.airbnb.com",
-            "port": 443,
-            "hostname": "api.airbnb.com",
-            "hash": null,
-            "search": "",
-            "query": "",
-            "pathname": "",
-            "path": "",
-            "href": "https://api.airbnb.com/"
-        }
+        "baseUrl": "https://api.airbnb.com"
     },
     "functions": [
         {
