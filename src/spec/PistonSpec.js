@@ -26,7 +26,7 @@ describe("Piston", function(){
  });
 });
 
-/* describe("Piston can extract data from response", function(){
+/* describe("Piston can show data from a response", function(){
    it("Extracts the specified fields from a parsed json response", function(){
     piston = new Piston();
     var specPath = "../pistonSpecs/airbnb.json";
