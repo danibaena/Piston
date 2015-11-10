@@ -2,7 +2,7 @@ request = require('request');
 
 function Functions() {
 }
-Functions.prototype.parseFunction = function(specObject, functionName){
+Functions.prototype.parseFunctions = function(specObject, functionName){
 	var data = specObject.functions;
 
 	for (var key in data) {
@@ -33,7 +33,7 @@ Functions.prototype.buildRequest = function(parsedFunction){
 Functions.prototype.createOptionsObject = function(parsedFunction) {
 	var options = {}
 	// concretar el if
-	if (parsedFunction.options.length)
+	if (parsedFunction.options !== undefined)
 		return parsedFunction.options
 
 	var excludedOptions = ['name', 'after', 'extract']
@@ -46,8 +46,8 @@ Functions.prototype.createOptionsObject = function(parsedFunction) {
 	return options
 };
 
-Functions.prototype.parseDefaults = function(specObject) {
-	return request.defaults({specObject.default})
+Functions.prototype.parseDefaults = function (specObject) {
+	return request.defaults(specObject.default)
 };
 
 module.exports = Functions;
