@@ -1,12 +1,13 @@
 describe("Functions", function() {
   var Functions = require("../lib/Functions");
   var functions;
-  var SpecFile = require("../lib/Piston");
-  var specFile = new SpecFile();
+  var Piston = require("../lib/Piston");
+  var piston;
 
   beforeEach(function() {
-    var specObject = specFile.parseSpec("../pistonSpecs/airbnb.json");
-    functions = new Functions(specObject);
+    var specPath = "../pistonSpecs/airbnb.json";
+    piston = new Piston(specPath);
+    functions = new Functions(piston.specObject);
   });
 
   describe("can parse a spec object", function() {
@@ -27,8 +28,7 @@ describe("Functions", function() {
     });
 
     it("returns a request object with default values from specObject", function() {
-      var specObject = specFile.parseSpec("../pistonSpecs/airbnb.json");
-      expect(functions.parseDefaults(specObject))
+      expect(functions.parseDefaults(piston.specObject))
         .toEqual(jasmine.any(Function));
     });
 

@@ -6,7 +6,7 @@ function Functions(specObject) {
 
 Functions.prototype.list = function() {
   var data = this.specObject.functions;
-  var names = []
+  var names = [];
   for (var key in data) {
     names[key] = data[key].name;
   }
@@ -23,14 +23,6 @@ Functions.prototype.parseFunctions = function(functionName) {
   }
 };
 
-Functions.prototype.extractData = function(parsedFunction) {
-  var fieldsToExtract = parsedFunction.extract;
-
-  return fieldsToExtract.map(function(value) {
-    return value.split(".");
-  });
-};
-
 Functions.prototype.buildRequest = function(parsedFunction) {
 
   var options = this.createOptionsObject(parsedFunction)
@@ -38,19 +30,20 @@ Functions.prototype.buildRequest = function(parsedFunction) {
     /*  if (Piston.baseRequest)
         var request = Piston.baseRequest*/
 
-    return function() {
-       return request(options, function(error, response, body) {
-        if (error) {
-          console.log(error);
-          return error;
-        } else {
-          console.log("\n" + typeof response);
-          console.log("\n" + typeof response.statusCode);
-          console.log("\n" + typeof body);
-          console.log(response.statusCode, body);
-          return response;
-        }
-      })};
+  return function() {
+    return request(options, function(error, response, body) {
+      if (error) {
+        console.log(error);
+        return error;
+      } else {
+        console.log("\n" + typeof response);
+        console.log("\n" + typeof response.statusCode);
+        console.log("\n" + typeof body);
+        console.log(response.statusCode, body);
+        return response;
+      }
+    })
+  };
 };
 
 Functions.prototype.createOptionsObject = function(parsedFunction) {
@@ -73,6 +66,14 @@ Functions.prototype.createOptionsObject = function(parsedFunction) {
 Functions.prototype.parseDefaults = function() {
   return request.defaults(this.specObject.default)
 
+};
+
+Functions.prototype.extractData = function(parsedFunction) {
+  var fieldsToExtract = parsedFunction.extract;
+
+  return fieldsToExtract.map(function(value) {
+    return value.split(".");
+  });
 };
 
 module.exports = Functions;
