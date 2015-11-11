@@ -61,12 +61,11 @@ describe("Functions", function() {
             "Connection": "keep-alive"
           }
         });
+    });
+    it("creates a list of the functions available in the spec", function() {
+      var expectedFunctions = ["get_user", "login"];
+      expect(functions.list()).toEqual(expectedFunctions);
 
-      it("creates a list of the functions available in the spec", function() {
-        var expectedFunctions = ["get_user", "login"];
-        expect(functions.list()).toEqual(expectedFunctions);
-
-      });
     });
   });
 });

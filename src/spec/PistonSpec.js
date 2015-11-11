@@ -31,7 +31,7 @@ describe("Piston", function(){
     piston = new Piston();
     var specPath = "../pistonSpecs/airbnb.json";
     var specFile = piston.parseSpec(specPath);
-    var response = require("../pistonSpecs/response.json");
+    var responseMock = require("../pistonSpecs/response.json");
     var functionName = "get_user";
     piston.extractData(specFile, functionName, response);
     //expect(piston.extractData(specFile, functionName, response)).toBe(true);
