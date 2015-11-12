@@ -1,22 +1,19 @@
-function Piston(specPath) { //specPath
+function Piston(specPath) {
   this.specObject = require(specPath);
 }
-/*Piston.prototype.parseSpec = function(specPath) {
-  return require(specPath);
-};*/
 
-Piston.prototype.functionsInit = function() {
-  var Functions = require("../lib/Functions");
-  var functions = new Functions(this.specObject);
-  var functionNamesList = functions.list();
-  for (key in functionNamesList) {
-    var propertyName = functionNamesList[key];
-    this[propertyName] = functions.buildRequest(functions.parseFunctions(functionNamesList[key]));
+Piston.prototype.actionInit = function() {
+  var Action = require("../lib/Action");
+  var action = new Action(this.specObject);
+  var actionNameList = action.list();
+  for (key in actionNameList) {
+    var propertyName = actionNameList[key];
+    this[propertyName] = action.buildRequest(action.parseAction(actionNameList[key]));
   }
 }
 
-Piston.prototype.extractData = function(specFile, functionName, response) {
-  var fieldsToExtract = specFile.functions[functionName].extract;
+Piston.prototype.extractData = function(specFile, actionName, response) {
+  var fieldsToExtract = specFile.action[actionName].extract;
 
   return fieldsToExtract.map(function(value) {
     return value.split(".");

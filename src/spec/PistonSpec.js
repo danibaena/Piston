@@ -27,28 +27,18 @@ describe("Piston", function() {
       expect(new Piston(specPath)).toEqual(jasmine.any(Object));
     });
   });
-  describe("can create functions from keys", function() {
-    it("correctly creates properties from a functions object", function() {
-      piston.functionsInit();
+
+  describe("can create action from keys", function() {
+    it("correctly creates properties from a action object", function() {
+      piston.actionInit();
       expect(piston.get_user).toEqual(jasmine.any(Function));
     });
 
-    it("and the function returns an object", function() {
-      piston.functionsInit();
-      expect(piston.get_user()).toBe(jasmine.any(Object));
+    it("and the action returns an object", function() {
+      piston.actionInit();
+      piston.get_user();
+      expect(piston.get_user()).toBe();
     });
 
   });
 });
-
-/* describe("Piston can show data from a response", function(){
-   it("Extracts the specified fields from a parsed json response", function(){
-    piston = new Piston();
-    var specPath = "../pistonSpecs/airbnb.json";
-    var specFile = piston.parseSpec(specPath);
-    var responseMock = require("../pistonSpecs/response.json");
-    var functionName = "get_user";
-    piston.extractData(specFile, functionName, response);
-    //expect(piston.extractData(specFile, functionName, response)).toBe(true);
-  });
- });*/

@@ -1,19 +1,19 @@
-describe("Functions", function() {
-  var Functions = require("../lib/Functions");
-  var functions;
+describe("Action", function() {
+  var Action = require("../lib/Action");
+  var action;
   var Piston = require("../lib/Piston");
   var piston;
 
   beforeEach(function() {
     var specPath = "../pistonSpecs/airbnb.json";
     piston = new Piston(specPath);
-    functions = new Functions(piston.specObject);
+    action = new Action(piston.specObject);
   });
 
   describe("can parse a spec object", function() {
     it("Returns the function as an object given a function name", function() {
-      var functionName = "get_user";
-      expect(functions.parseFunctions(functionName))
+      var actionName = "get_user";
+      expect(action.parseAction(actionName))
         .toEqual(jasmine.any(Object));
     });
 
@@ -22,18 +22,18 @@ describe("Functions", function() {
         ["user", "first_name"],
         ["user", "picture_url"]
       ];
-      var functionName = "get_user";
-      expect(functions.extractData(functions.parseFunctions(functionName)))
+      var actionName = "get_user";
+      expect(action.extractData(action.parseAction(actionName)))
         .toEqual(extractedArray);
     });
 
     it("returns a request object with default values from specObject", function() {
-      expect(functions.parseDefaults(piston.specObject))
+      expect(action.parseDefaults(piston.specObject))
         .toEqual(jasmine.any(Function));
     });
 
-    it("returns an options object with values from the parsedFunction when there is no option field", function() {
-      var parsedFunction = {
+    it("returns an options object with values from the parsedAction when there is no option field", function() {
+      var parsedAction = {
         "name": "get_user",
         "path": "v2/users/",
         "method": "GET",
@@ -50,7 +50,7 @@ describe("Functions", function() {
         ]
       };
 
-      expect(functions.createOptionsObject(parsedFunction))
+      expect(action.createOptionsObject(parsedAction))
         .toEqual({
           "path": "v2/users/",
           "method": "GET",
@@ -62,9 +62,9 @@ describe("Functions", function() {
           }
         });
     });
-    it("creates a list of the functions available in the spec", function() {
-      var expectedFunctions = ["get_user", "login"];
-      expect(functions.list()).toEqual(expectedFunctions);
+    it("creates a list of the action available in the spec", function() {
+      var expectedAction = ["get_user", "login"];
+      expect(action.list()).toEqual(expectedAction);
 
     });
   });

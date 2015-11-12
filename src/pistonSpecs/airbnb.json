@@ -8,7 +8,7 @@
   "default": {
     "baseUrl": "https://api.airbnb.com"
   },
-  "functions": [{
+  "action": [{
     "name": "get_user",
     "uri": "https://api.airbnb.com/v2/users/1?client_id=3092nxybyb0otqw18e8nh5nty",
     "method": "GET",
@@ -18,7 +18,7 @@
       "If-None-Match": "W/\"0ec4c2f8c1695ca2328859164f9b2485",
       "Connection": "keep-alive"
     },
-    "after": false,
+    "after": null,
     "extract": [
       "user.first_name",
       "user.picture_url"
