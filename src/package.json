@@ -1,0 +1,19 @@
+{
+  "name": "piston",
+  "version": "1.0.0",
+  "description": "\"An engine for consuming APIs\"",
+  "main": "Piston.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jesgarciamartinez@bitbucket.org/h4-piston/piston.git"
+  },
+  "keywords": [
+    "piston"
+  ],
+  "author": "Dani and Jesús",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/h4-piston/piston#readme"
+}

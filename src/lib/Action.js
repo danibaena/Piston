@@ -29,7 +29,7 @@ Action.prototype.buildRequest = function(parsedAction) {
 
   var options = this.createOptionsObject(parsedAction)
     // the place where we will store the request returned by parseDefaults
-    /*  if (Piston.baseRequest)
+    /*  if (Piston.defaultRequest)
         var request = Piston.baseRequest*/
 
   return function(callback) {
@@ -75,8 +75,7 @@ Action.prototype.createOptionsObject = function(parsedAction) {
 };
 
 Action.prototype.parseDefaults = function() {
-  return request.defaults(this.specObject.default)
-
+  return request.defaults(this.specObject.defaults).defaults({jar: true})
 };
 
 Action.prototype.extractData = function(parsedAction) {

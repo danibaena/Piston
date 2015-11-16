@@ -5,7 +5,7 @@
     "version": "1.0",
     "author": "h4ckademy"
   },
-  "default": {
+  "defaults": {
     "baseUrl": "https://api.airbnb.com"
   },
   "action": [{
