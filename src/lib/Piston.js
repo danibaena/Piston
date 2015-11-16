@@ -1,16 +1,14 @@
 function Piston(specPath) {
   this.specObject = require(specPath);
-}
 
-Piston.prototype.actionInit = function() {
   var Action = require("../lib/Action");
   var currentSpecActionsAvailable = new Action(this.specObject);
   var actionsNameList = currentSpecActionsAvailable.list();
+
   for (key in actionsNameList) {
     var propertyName = actionsNameList[key];
     this[propertyName] = currentSpecActionsAvailable.buildRequest(
-    	currentSpecActionsAvailable.parseAction(actionsNameList[key])
-    	);
+      currentSpecActionsAvailable.parseAction(actionsNameList[key]));
   }
 }
 

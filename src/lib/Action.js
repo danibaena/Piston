@@ -1,5 +1,6 @@
-var Promise = require('bluebird');
-var request = Promise.promisifyAll(require('request'));
+//var Promise = require('bluebird');
+//var request = Promise.promisifyAll(require('request'));
+var request = require('request')
 
 function Action(specObject) {
   this.specObject = specObject;
@@ -59,7 +60,7 @@ Action.prototype.buildRequest = function(parsedAction) {
 Action.prototype.createOptionsObject = function(parsedAction) {
 
   var options = {}
-    // concretar el if
+
   if (parsedAction.options !== undefined)
     return parsedAction.options
 

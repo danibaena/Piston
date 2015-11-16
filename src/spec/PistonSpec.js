@@ -30,12 +30,12 @@ describe("Piston", function() {
 
   describe("can create action from keys", function() {
     it("correctly creates properties from a action object", function() {
-      piston.actionInit();
+
       expect(piston.get_user).toEqual(jasmine.any(Function));
     });
 
     it("and the action returns an object", function() {
-      piston.actionInit();
+
       piston.get_user();
       expect(piston.get_user()).toBe();
     });
