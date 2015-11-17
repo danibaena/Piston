@@ -10,12 +10,16 @@ function Piston(specPath) {
 
   for (key in actionsNameList) {
     var propertyName = actionsNameList[key];
+
     this[propertyName] = function () {
-      this.defaultRequest(currentSpecActionsAvailable
-        .createOptionsObject(parseAction(actionsNameList[key])));
+      var options = currentSpecActionsAvailable
+        .createOptionsObject(parseAction(actionsNameList[key], arguments))
+
+      this.defaultRequest(options);
     }
   }
 }
+
 Piston.prototype.extractData = function(specFile, actionName, response) {
   var fieldsToExtract = specFile.action[actionName].extract;
 

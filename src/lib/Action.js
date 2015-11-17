@@ -57,25 +57,36 @@ Action.prototype.buildRequest = function(parsedAction) {
   };
 };
 
-Action.prototype.createOptionsObject = function(parsedAction) {
+Action.prototype.createOptionsObject = function(parsedAction, arguments) {
 
   var options = {}
 
-  if (parsedAction.options !== undefined)
+  if (parsedAction.options !== undefined){
     return parsedAction.options
+  }
 
   var excludedOptions = ['name', 'after', 'extract']
   for (var key in parsedAction) {
     if (excludedOptions.indexOf(key) === -1) {
-      options[key] = parsedAction[key]
+      options[key] = this.isArgument(parsedAction[key]) ? arguments[parsedAction[key][1]] : parsedAction[key]
     }
   }
 
   return options
 };
 
+Action.prototype.isArgument = function(string) {
+  return string[0] === '<' && string[string.length - 1] === '>'
+}
+
 Action.prototype.parseDefaults = function() {
-  return request.defaults(this.specObject.defaults).defaults({jar: true})
+  var result = request.defaults({jar: true})
+
+  if (this.specObject.defaults !== undefined){
+    result = result.defaults(this.specObject.defaults)
+  }
+
+  return result
 };
 
 Action.prototype.extractData = function(parsedAction) {
