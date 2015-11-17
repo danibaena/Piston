@@ -1,10 +1,10 @@
 describe("Piston", function() {
   var Piston = require("../lib/Piston");
-  var piston;
+  var currentPiston;
 
   beforeEach(function() {
     var specPath = "../pistonSpecs/airbnb.json";
-    piston = new Piston(specPath);
+    currentPiston = new Piston(specPath);
   });
 
   describe("can use a json file", function() {
@@ -30,15 +30,7 @@ describe("Piston", function() {
 
   describe("can create action from keys", function() {
     it("correctly creates properties from a action object", function() {
-
-      expect(piston.get_user).toEqual(jasmine.any(Function));
+      expect(currentPiston.get_user).toEqual(jasmine.any(Function));
     });
-
-    it("and the action returns an object", function() {
-
-      piston.get_user();
-      expect(piston.get_user()).toBe();
-    });
-
   });
 });

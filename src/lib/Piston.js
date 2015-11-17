@@ -1,12 +1,11 @@
 function Piston(specPath) {
-  this.specObject = require(specPath)
+  this.specObject = require(specPath);
 
+  var Action = require("../lib/Action");
+  var currentSpecActionsAvailable = new Action(this.specObject);
+  this.defaultRequest = currentSpecActionsAvailable.parseDefaults;
 
-  var Action = require("../lib/Action")
-  var currentSpecActionsAvailable = new Action(this.specObject)
-  this.defaultRequest = currentSpecActionsAvailable.parseDefaults
-
-  var actionsNameList = currentSpecActionsAvailable.list()
+  var actionsNameList = currentSpecActionsAvailable.list();
 
   for (key in actionsNameList) {
     var propertyName = actionsNameList[key];

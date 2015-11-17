@@ -10,7 +10,11 @@
   },
   "action": [{
     "name": "get_user",
-    "uri": "https://api.airbnb.com/v2/users/1?client_id=3092nxybyb0otqw18e8nh5nty",
+    "uri": "7771271",
+    "baseUrl": "https://api.airbnb.com/v2/users/",
+    "qs": {
+      "client_id": "3092nxybyb0otqw18e8nh5nty"
+    },
     "method": "GET",
     "headers": {
       "host": "api.airbnb.com",
