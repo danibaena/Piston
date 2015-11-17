@@ -1,6 +1,4 @@
-//var Promise = require('bluebird');
-//var request = Promise.promisifyAll(require('request'));
-var request = require('request')
+var requestPromise = require('request-promise');
 
 function Action(specObject) {
   this.specObject = specObject;
@@ -28,33 +26,9 @@ Action.prototype.parseAction = function(actionName) {
 Action.prototype.buildRequest = function(parsedAction) {
 
   var options = this.createOptionsObject(parsedAction)
-    // the place where we will store the request returned by parseDefaults
-    /*  if (Piston.defaultRequest)
-        var request = Piston.baseRequest*/
 
-  return function(callback) {
-    return request(options, function(error, response, body) {
-      if (!error && response.statusCode == 200) {
-        status = "succeeded";
-        callback(null, {
-          status: status
-        });
-      } else {
-        callback(error);
-      }
 
-/*      if (error) {
-        console.log(error);
-        callback(error);
-      } else {
-        console.log("\n" + typeof response);
-        console.log("\n" + typeof response.statusCode);
-        console.log("\n" + typeof body);
-        console.log(response.statusCode, body);
-        return response;
-      }*/
-    })
-  };
+  return
 };
 
 Action.prototype.createOptionsObject = function(parsedAction) {
@@ -75,7 +49,7 @@ Action.prototype.createOptionsObject = function(parsedAction) {
 };
 
 Action.prototype.parseDefaults = function() {
-  return request.defaults(this.specObject.defaults).defaults({jar: true})
+  return requestPromise.defaults(this.specObject.defaults).defaults({jar: true})
 };
 
 Action.prototype.extractData = function(parsedAction) {
