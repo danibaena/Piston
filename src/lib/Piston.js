@@ -12,7 +12,7 @@ function Piston(specPath) {
 
     this[propertyName] = function () {
       var options = currentSpecActionsAvailable
-        .createOptionsObject(parseAction(actionsNameList[key], arguments))
+        .createOptionsObject(currentSpecActionsAvailable.parseAction(actionsNameList[key], arguments));
 
       this.defaultRequest(options);
     }

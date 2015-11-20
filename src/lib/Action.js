@@ -50,17 +50,17 @@ Action.prototype.createOptionsObject = function(parsedAction, arguments) {
 };
 
 Action.prototype.isArgument = function(string) {
-  return string[0] === '<' && string[string.length - 1] === '>'
+  return string[0] === '<' && string[string.length - 1] === '>';
 }
 
 Action.prototype.parseDefaults = function() {
-  var result = request.defaults({jar: true})
+ var defaults = {};
+ if (this.specObject.defaults !== undefined){
+   defaults = this.specObject.defaults;
+ }
+ defaults[jar] = true;
 
-  if (this.specObject.defaults !== undefined){
-    result = result.defaults(this.specObject.defaults)
-  }
-
-  return result
+ return request.defaults(defaults);
 };
 
 Action.prototype.extractData = function(parsedAction) {
