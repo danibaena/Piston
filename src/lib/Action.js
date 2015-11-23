@@ -5,6 +5,7 @@ var colors = require("colors");
 function Action(specObject) {
   this.specObject = specObject;
   this.baseRequest = this.parseDefaults();
+  this.cookieJar = request.jar();
 }
 
 Action.prototype.list = function() {
@@ -33,10 +34,13 @@ Action.prototype.buildRequest = function(parsedAction) {
   var self = this;
   var data;
   var returnedFunction = function(param) {
+
+
     if (param !== undefined) {
       var fullUri = options.uri + param;
       options.uri = fullUri;
     }
+    // console.log(request(options));
     requestPromisified(options)
       .then(function(response) {
         // console.log(response.body);
@@ -61,12 +65,13 @@ Action.prototype.createOptionsObject = function(parsedAction) {
     return parsedAction.options
   }
 
-  var excludedOptions = ['name', 'after', 'extract']
+  var excludedOptions = ['name', 'after', 'extract', 'pathParam']
   for (var key in parsedAction) {
     if (excludedOptions.indexOf(key) === -1) {
       options[key] = parsedAction[key];
     }
   }
+  options.jar = this.cookieJar;
 
   return options;
 };
@@ -78,18 +83,20 @@ Action.prototype.isArgument = function(string) {
 };
 
 Action.prototype.parseDefaults = function() {
-  var defaultsObject = {};
-  if (this.specObject.defaults !== undefined) {
-    defaultsObject = this.specObject.defaults;
-  }
 
-  defaultsObject.jar = true;
-  return request.defaults(defaultsObject);
+
+  // var defaultsObject = {};
+  // if (this.specObject.defaults !== undefined) {
+  //   defaultsObject = this.specObject.defaults;
+  // }
+
+  // defaultsObject.jar = true;
+  // return request.defaults(defaultsObject);
 };
 
 Action.prototype.extractData = function(parsedAction) {
   var fieldsToExtract = parsedAction.extract;
-  console.log("fields to extract: ", fieldsToExtract);
+  // console.log("fields to extract: ", fieldsToExtract);
   if (fieldsToExtract !== undefined) {
     return fieldsToExtract.map(function(value) {
       return value.split(".");
@@ -123,44 +130,6 @@ Action.prototype.processResponse = function(response, extractedData) {
 
 
   return result;
-
-
-
-
-
-
-  // function getFieldRecursively (response){
-  //   if (response instanceof String){
-  //     // result.push(response);
-  //     // return;
-  //     return response;
-  //   }
-
-  //   return getFieldRecursively (response[])
-  // };
-
-
-  // var responseBackup = response;
-
-  // for (key in extractedData) {
-  //   var auxiliar = extractedData[key];
-
-  //   for (key2 in extractedData[key]) {
-  //     // console.log(auxiliar2);
-  //     var auxiliar2 = extractedData[key][key2];
-  //     if (response[auxiliar2]) {
-  //       response = response[auxiliar2];
-  //     }
-  //   }
-  //   console.log(auxiliar2.yellow + ":\n");
-  //   if (response !== undefined) {
-  //     console.log(response.green + "\n");
-  //   } else {
-  //     console.log("Not available for this user \n");
-  //   }
-
-  //   response = responseBackup;
-  // }
 };
 
 module.exports = Action;
