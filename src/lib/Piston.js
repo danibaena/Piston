@@ -3,19 +3,15 @@ function Piston(specPath) {
 
   var Action = require("../lib/Action");
   var currentSpecActionsAvailable = new Action(this.specObject);
-  this.defaultRequest = currentSpecActionsAvailable.parseDefaults;
 
   var actionsNameList = currentSpecActionsAvailable.list();
 
   for (key in actionsNameList) {
     var propertyName = actionsNameList[key];
-
-    this[propertyName] = function () {
-      var options = currentSpecActionsAvailable
-        .createOptionsObject(currentSpecActionsAvailable.parseAction(actionsNameList[key], arguments));
-
-      this.defaultRequest(options);
-    }
+    var parsedActionUnique = currentSpecActionsAvailable.parseAction(actionsNameList[key]);
+    var promiseUnique = currentSpecActionsAvailable
+      .buildRequest(parsedActionUnique);
+    this[propertyName] = promiseUnique;
   }
 }
 
