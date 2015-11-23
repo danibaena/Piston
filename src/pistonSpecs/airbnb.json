@@ -10,16 +10,14 @@
   },
   "action": [{
     "name": "get_user",
-    "uri": "7771271",
-    "baseUrl": "https://api.airbnb.com/v2/users/",
+    "uri": "https://api.airbnb.com/v2/users/",
     "qs": {
       "client_id": "3092nxybyb0otqw18e8nh5nty"
     },
     "method": "GET",
     "headers": {
       "host": "api.airbnb.com",
-      "User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0",
-      "If-None-Match": "W/\"0ec4c2f8c1695ca2328859164f9b2485",
+      "User-Agent": "Airbnb/160610 Android/4.0.4 Device/Sony_LT15i Carrier/Movistar Type/Phone",
       "Connection": "keep-alive"
     },
     "after": null,
