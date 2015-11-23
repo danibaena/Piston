@@ -43,8 +43,8 @@ Action.prototype.buildRequest = function(parsedAction) {
         data = JSON.parse(response.body);
       })
       .then(function() {
-        self.processResponse(data, extractedData);
-        // console.log(data);
+        processedResponse = self.processResponse(data, extractedData);
+        console.log(processedResponse);
       })
       .catch(function(error) {
         throw error;
@@ -98,28 +98,69 @@ Action.prototype.extractData = function(parsedAction) {
 };
 
 Action.prototype.processResponse = function(response, extractedData) {
+  // console.log(extractedData);
+  // console.log(typeof response);
+  var result;
 
-  var responseBackup = response;
-
-  for (key in extractedData) {
-    var auxiliar = extractedData[key];
-
-    for (key2 in extractedData[key]) {
-      // console.log(auxiliar2);
-      var auxiliar2 = extractedData[key][key2];
-      if (response[auxiliar2]) {
-        response = response[auxiliar2];
-      }
-    }
-    console.log(auxiliar2.yellow + ":\n");
-    if (response !== undefined) {
-      console.log(response.green + "\n");
-    } else {
-      console.log("Not available for this user \n");
-    }
-
-    response = responseBackup;
+  function processObject(object, fieldsToExtract) {
+    return fieldsToExtract.map(function(innerArray) {
+      return innerArray.reduce(function(previous, current) {
+        previous = previous[current];
+        // console.log(previous);
+        return previous;
+      }, object);
+    });
   }
+
+  function processArray(array, fieldsToExtract){
+    return array.map(function(innerObject){
+      processObject(innerObject, fieldsToExtract);
+    })
+  }
+
+  result = processObject(response, extractedData);
+
+
+
+  return result;
+
+
+
+
+
+
+  // function getFieldRecursively (response){
+  //   if (response instanceof String){
+  //     // result.push(response);
+  //     // return;
+  //     return response;
+  //   }
+
+  //   return getFieldRecursively (response[])
+  // };
+
+
+  // var responseBackup = response;
+
+  // for (key in extractedData) {
+  //   var auxiliar = extractedData[key];
+
+  //   for (key2 in extractedData[key]) {
+  //     // console.log(auxiliar2);
+  //     var auxiliar2 = extractedData[key][key2];
+  //     if (response[auxiliar2]) {
+  //       response = response[auxiliar2];
+  //     }
+  //   }
+  //   console.log(auxiliar2.yellow + ":\n");
+  //   if (response !== undefined) {
+  //     console.log(response.green + "\n");
+  //   } else {
+  //     console.log("Not available for this user \n");
+  //   }
+
+  //   response = responseBackup;
+  // }
 };
 
 module.exports = Action;
