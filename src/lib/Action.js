@@ -33,9 +33,10 @@ Action.prototype.buildRequest = function(parsedAction) {
   var extractedData = this.extractData(parsedAction);
   var self = this;
   var data;
-  var returnedFunction = function(param) {
 
+  // console.log(options);
 
+  return function(param) {
     if (param !== undefined) {
       var fullUri = options.uri + param;
       options.uri = fullUri;
@@ -48,13 +49,12 @@ Action.prototype.buildRequest = function(parsedAction) {
       })
       .then(function() {
         processedResponse = self.processResponse(data, extractedData);
-        console.log(processedResponse);
+        console.log(processedResponse.toString().yellow);
       })
       .catch(function(error) {
         throw error;
       });
   };
-  return returnedFunction;
 };
 
 Action.prototype.createOptionsObject = function(parsedAction) {
