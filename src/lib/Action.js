@@ -30,7 +30,7 @@ Action.prototype.buildRequest = function(parsedAction) {
   var requestPromisified = Promise.promisify(request);
   var options = this.createOptionsObject(parsedAction);
   var extractedData = this.extractData(parsedAction);
-  var self = this.proccessResponse;
+  var self = this;
   var data;
   var returnedFunction = function(param) {
     if (param !== undefined) {
@@ -43,7 +43,7 @@ Action.prototype.buildRequest = function(parsedAction) {
         data = JSON.parse(response.body);
       })
       .then(function() {
-        self(data, extractedData);
+        self.processResponse(data, extractedData);
         // console.log(data);
       })
       .catch(function(error) {
@@ -98,6 +98,7 @@ Action.prototype.extractData = function(parsedAction) {
 };
 
 Action.prototype.processResponse = function(response, extractedData) {
+
   var responseBackup = response;
 
   for (key in extractedData) {
