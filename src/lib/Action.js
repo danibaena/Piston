@@ -1,6 +1,6 @@
 var Promise = require("bluebird");
 var request = require("request");
-var colors  = require("colors");
+var colors = require("colors");
 
 function Action(specObject) {
   this.specObject = specObject;
@@ -34,48 +34,14 @@ Action.prototype.buildRequest = function(parsedAction) {
   var self = this;
   var data;
 
-  var isArgument = function(string) {
-    return string[0] === '<' && string[string.length - 1] === '>';
-  };
-  return function(param) {
-
-    // if (arguments !== undefined) {
-    //   var args = Array.prototype.slice.call(arguments);
-    //   // console.log(args);
-
-    //   // console.log(extractedArguments);
-    //   function insertArguments(options) {
-    //     var extractedArguments = parsedAction.arguments.map(function(value) {
-    //       return value.split(".");
-    //     });
-    //     extractedArguments.forEach(function(innerArray) {
-    //       innerArray.reduce(function(previous, current) {
-    //         previous[current] = previous.hasOwnProperty(current) ?
-    //       }, options);
-    //     })
-    //   }
-
-    // }
-
-
-    // if (arguments !== undefined) {
-    //   for (var key in parsedAction) {
-    //     console.log(parsedAction[key]);
-    //     if (key === 'pathParam') {
-    //       options.uri += arguments[parsedAction[key][1]];
-    //     } else if (isArgument(parsedAction[key])) {
-    //       console.log(parsedAction[key]);
-    //       options[key] = arguments[parsedAction[key][1]];
-    //     }
-    //   }
-    // }
-
-    if (param !== undefined) {
-      var fullUri = options.uri + param;
-      options.uri = fullUri;
+  return function() {
+    if (arguments.length > 0) {
+      // console.log("This is parsedAction arguments", parsedAction.arguments)
+      options = self.processArguments(options, parsedAction.arguments, arguments);
+      /*console.log("this is arguments", arguments);
+      console.log("This is options: ", options);*/
     }
 
-    // console.log(request(options));
     requestPromisified(options)
       .then(function(response) {
         // console.log(response.body);
@@ -84,13 +50,25 @@ Action.prototype.buildRequest = function(parsedAction) {
         data = JSON.parse(response.body);
       })
       .then(function() {
+        // console.log("This is the response", data);
         var processedResponse = self.processResponse(data, extractedData);
-        console.log(processedResponse.toString().yellow);
+        console.log(processedResponse);
       })
       .catch(function(error) {
         throw error;
       });
   };
+};
+Action.prototype.processArguments = function(parsedActionOptions, parsedActionArguments, requestArguments) {
+  var optionsStringified = JSON.stringify(parsedActionOptions);
+  var auxiliar;
+
+  parsedActionArguments.forEach(function(value, index) {
+    auxiliar = "{" + value + "}";
+    optionsStringified = optionsStringified.replace(auxiliar, requestArguments[index]);
+  });
+
+  return JSON.parse(optionsStringified);
 };
 
 Action.prototype.createOptionsObject = function(parsedAction) {
@@ -98,9 +76,9 @@ Action.prototype.createOptionsObject = function(parsedAction) {
   // var options = parseDefaults();
   var options = {};
 
-/*  if (parsedAction.options !== undefined) {
-    return parsedAction.options
-  }*/
+  /*  if (parsedAction.options !== undefined) {
+      return parsedAction.options
+    }*/
 
   var excludedOptions = ['name', 'after', 'extract', 'arguments'];
   for (var key in parsedAction) {
