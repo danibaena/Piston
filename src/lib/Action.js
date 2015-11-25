@@ -1,6 +1,6 @@
 var Promise = require("bluebird");
 var request = require("request");
-var colors = require("colors");
+var colors  = require("colors");
 
 function Action(specObject) {
   this.specObject = specObject;
@@ -79,10 +79,12 @@ Action.prototype.buildRequest = function(parsedAction) {
     requestPromisified(options)
       .then(function(response) {
         // console.log(response.body);
+        // console.log("This is the status code of the response", response.statusCode);
+        // console.log("This is the content-type of the response", response.headers["content-type"]);
         data = JSON.parse(response.body);
       })
       .then(function() {
-        processedResponse = self.processResponse(data, extractedData);
+        var processedResponse = self.processResponse(data, extractedData);
         console.log(processedResponse.toString().yellow);
       })
       .catch(function(error) {
@@ -96,9 +98,9 @@ Action.prototype.createOptionsObject = function(parsedAction) {
   // var options = parseDefaults();
   var options = {};
 
-  // if (parsedAction.options !== undefined) {
-  //   return parsedAction.options
-  // }
+/*  if (parsedAction.options !== undefined) {
+    return parsedAction.options
+  }*/
 
   var excludedOptions = ['name', 'after', 'extract', 'arguments'];
   for (var key in parsedAction) {
@@ -147,17 +149,16 @@ Action.prototype.processResponse = function(response, extractedData) {
     return (!!a) && (a.constructor === Array);
   };
   var isObject = function(a) {
-      return (!!a) && (a.constructor === Object);
+    return (!!a) && (a.constructor === Object);
   };
 
   function processObject(object, fieldsToExtract) {
     return fieldsToExtract.map(function(innerArray) {
       return innerArray.reduce(function(previous, current) {
-        if (isArray(previous)){
+        if (isArray(previous)) {
           current = [current.split()];
           previous = processArray(previous, current);
-        }
-        else {
+        } else {
           previous = previous[current];
         }
         return previous;
@@ -171,9 +172,9 @@ Action.prototype.processResponse = function(response, extractedData) {
     })
   }
 
-  if (isArray(response)){
+  if (isArray(response)) {
     result = processArray(response, extractedData);
-  } else if (isObject(response)){
+  } else if (isObject(response)) {
     result = processObject(response, extractedData);
   }
 
