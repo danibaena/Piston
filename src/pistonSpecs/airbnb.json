@@ -10,7 +10,7 @@
   },
   "action": [{
     "name": "getUser",
-    "uri": "https://api.airbnb.com/v2/users/",
+    "uri": "https://api.airbnb.com/v2/users/{userID}",
     "method": "GET",
     "qs": {
       "client_id": "3092nxybyb0otqw18e8nh5nty"
@@ -20,6 +20,9 @@
       "User-Agent": "Airbnb/160610 Android/4.0.4 Device/Sony_LT15i Carrier/Movistar Type/Phone",
       "Connection": "keep-alive"
     },
+    "arguments": [
+      "userID"
+    ],
     "after": null,
     "extract": [
       "user.first_name",
@@ -39,9 +42,13 @@
     },
     "form": {
       "grant_type": "password",
-      "password": "123456",
-      "username": "i1264348@trbvm.com"
+      "password": "{pass}",
+      "username": "{username}"
     },
+    "arguments": [
+      "username",
+      "pass"
+    ],
     "after": null,
     "extract": [
       "access_token"
