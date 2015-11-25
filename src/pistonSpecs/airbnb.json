@@ -29,6 +29,22 @@
     ]
   }, {
     "name": "login",
-    "path": "v2/users/"
+    "uri": "https://api.airbnb.com/v1/authorize",
+    "qs": {
+      "client_id": "3092nxybyb0otqw18e8nh5nty"
+    },
+    "method": "POST",
+    "headers": {
+      "User-Agent": "Airbnb/160610 Android/4.0.4 Device/Sony_LT15i Carrier/Movistar Type/Phone"
+    },
+    "form": {
+      "grant_type": "password",
+      "password": "123456",
+      "user": "i1264348@trbvm.com"
+      },
+    "after": null,
+    "extract": [
+      "access_token"
+    ]
   }]
 }

@@ -33,10 +33,11 @@ Action.prototype.buildRequest = function(parsedAction) {
   var extractedData = this.extractData(parsedAction);
   var self = this;
   var data;
+
   var isArgument = function(string) {
     return string[0] === '<' && string[string.length - 1] === '>';
   };
-  return function() {
+  return function(param) {
 
     // if (arguments !== undefined) {
     //   var args = Array.prototype.slice.call(arguments);
@@ -69,10 +70,11 @@ Action.prototype.buildRequest = function(parsedAction) {
     //   }
     // }
 
-    // if (param !== undefined) {
-    //   var fullUri = options.uri + param;
-    //   options.uri = fullUri;
-    // }
+    if (param !== undefined) {
+      var fullUri = options.uri + param;
+      options.uri = fullUri;
+    }
+
     // console.log(request(options));
     requestPromisified(options)
       .then(function(response) {
@@ -81,7 +83,7 @@ Action.prototype.buildRequest = function(parsedAction) {
       })
       .then(function() {
         processedResponse = self.processResponse(data, extractedData);
-        console.log(processedResponse);
+        console.log(processedResponse.toString().yellow);
       })
       .catch(function(error) {
         throw error;
