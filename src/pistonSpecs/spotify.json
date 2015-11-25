@@ -55,15 +55,28 @@
     "uri": "https://api.spotify.com/v1/search",
     "qs": {
       "q": "{searchQuery}",
-      "type": "{type}"
+      "type": "artist"
     },
     "arguments": [
-      "searchQuery",
-      "type"
+      "searchQuery"
     ],
     "extract": [
       "artists.items.name",
       "artists.items.popularity"
+    ]
+  }, {
+    "name": "searchAlbum",
+    "uri": "https://api.spotify.com/v1/search",
+    "qs": {
+      "q": "{searchQuery}",
+      "type": "album"
+    },
+    "arguments": [
+      "searchQuery"
+    ],
+    "extract": [
+      "albums.items.0.name",
+      "albums.items.0.id"
     ]
   }]
 }

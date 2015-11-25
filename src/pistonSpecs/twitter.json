@@ -1,0 +1,23 @@
+{
+  "info": {
+    "title": "twitter",
+    "description": "API to retrieve info from twitter",
+    "version": "1.0",
+    "author": "h4ckademy"
+  },
+  "defaults": {
+    "baseUrl": "https://api.twitter.com/1.1/"
+  },
+  "action": [{
+    "name": "search",
+    "arguments": [
+      "pathParam.albumId"
+    ],
+    "uri": "https://api.twitter.com/1.1/",
+    "extract": [
+      "name",
+      "release_date",
+      "images.url"
+    ]
+  }]
+}
