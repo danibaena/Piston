@@ -15,12 +15,4 @@ function Piston(specPath) {
   }
 }
 
-Piston.prototype.extractData = function(specFile, actionName, response) {
-  var fieldsToExtract = specFile.action[actionName].extract;
-
-  return fieldsToExtract.map(function(value) {
-    return value.split(".");
-  });
-};
-
 module.exports = Piston;

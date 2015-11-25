@@ -1,0 +1,64 @@
+{
+  "info": {
+    "title": "Spotify",
+    "description": "API to retrieve info from Spotify",
+    "version": "1.0",
+    "author": "h4ckademy"
+  },
+  "defaults": {
+    "baseUrl": "https://api.spotify.com"
+  },
+  "action": [{
+    "name": "getAlbum",
+    "arguments": [
+      "pathParam.albumId"
+    ],
+    "uri": "https://api.spotify.com/v1/albums/0sNOF9WDwhWunNAHPD3Baj",
+    "extract": [
+      "name",
+      "release_date",
+      "images.url"
+    ]
+  }, {
+    "name": "getAlbumTracks",
+    "arguments": [
+      "pathParam.albumId"
+    ],
+    "uri": "https://api.spotify.com/v1/albums/0sNOF9WDwhWunNAHPD3Baj/tracks",
+    "extract": [
+      "items.name",
+      "items.track_number"
+    ]
+  }, {
+    "name": "getUser",
+    "arguments": [
+      "pathParam.userId"
+    ],
+    "uri": "https://api.spotify.com/v1/users/tuggareutangranser",
+    "extract": [
+      "display_name",
+      "images.url"
+    ]
+  }, {
+    "name": "getArtist",
+    "arguments": [
+      "pathParam.artistId"
+    ],
+    "uri": "https://api.spotify.com/v1/artists/{artistId}",
+    "extract": [
+      "name",
+      "genres",
+      "images.url"
+    ]
+  }, {
+    "name": "search",
+    "arguments": [
+      "pathParam.artistId"
+    ],
+    "uri": "https://api.spotify.com/v1/search",
+    "qs": {
+      "q": "Radiohead",
+      "type": "artist"
+    }
+  }]
+}

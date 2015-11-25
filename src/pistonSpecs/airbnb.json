@@ -1,29 +1,31 @@
 {
   "info": {
     "title": "AirBnB",
-    "description": "API to retrieve different info from AirBnB",
+    "description": "API to retrieve info from AirBnB",
     "version": "1.0",
     "author": "h4ckademy"
   },
   "defaults": {
-    "baseUrl": "https://api.airbnb.com"
+
   },
-  "action": [{
-    "name": "get_user",
-    "uri": "https://api.airbnb.com/v2/users/",
+  "actions": [{
+    "name": "getUser",
+    "arguments": ["pathParam", "qs.client_id"],
+    "uri": "https://api.airbnb.com/v2/users/7771271",
     "qs": {
-      "client_id": "3092nxybyb0otqw18e8nh5nty"
-    },
+        "client_id": "3092nxybyb0otqw18e8nh5nty"
+        },
     "method": "GET",
     "headers": {
       "host": "api.airbnb.com",
       "User-Agent": "Airbnb/160610 Android/4.0.4 Device/Sony_LT15i Carrier/Movistar Type/Phone",
       "Connection": "keep-alive"
     },
-    "after": null,
+    "after": "",
     "extract": [
       "user.first_name",
-      "user.picture_url"
+      "user.picture_url",
+      "user.verification_labels.2"
     ]
   }, {
     "name": "login",
