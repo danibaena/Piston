@@ -65,7 +65,8 @@ Action.prototype.processArguments = function(parsedActionOptions, parsedActionAr
 
   parsedActionArguments.forEach(function(value, index) {
     auxiliar = "{" + value + "}";
-    optionsStringified = optionsStringified.replace(auxiliar, requestArguments[index]);
+    var reAuxiliar = new RegExp(auxiliar, "g")
+    optionsStringified = optionsStringified.replace(reAuxiliar, requestArguments[index]);
   });
 
   return JSON.parse(optionsStringified);
@@ -130,10 +131,14 @@ Action.prototype.processResponse = function(response, extractedData) {
     return (!!a) && (a.constructor === Object);
   };
 
+  function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
   function processObject(object, fieldsToExtract) {
     return fieldsToExtract.map(function(innerArray) {
       return innerArray.reduce(function(previous, current) {
-        if (isArray(previous)) {
+        if (isArray(previous) && !isNumeric(current)) {
           current = [current.split()];
           previous = processArray(previous, current);
         } else {
