@@ -1,47 +1,47 @@
 {
   "info": {
     "title": "AirBnB",
-    "description": "API to retrieve info from AirBnB",
+    "description": "API to retrieve different info from AirBnB",
     "version": "1.0",
     "author": "h4ckademy"
   },
   "defaults": {
-
+    "baseUrl": "https://api.airbnb.com"
   },
-  "actions": [{
+  "action": [{
     "name": "getUser",
-    "arguments": ["pathParam", "qs.client_id"],
-    "uri": "https://api.airbnb.com/v2/users/7771271",
-    "qs": {
-        "client_id": "3092nxybyb0otqw18e8nh5nty"
-        },
+    "uri": "https://api.airbnb.com/v2/users/",
     "method": "GET",
+    "qs": {
+      "client_id": "3092nxybyb0otqw18e8nh5nty"
+    },
     "headers": {
       "host": "api.airbnb.com",
       "User-Agent": "Airbnb/160610 Android/4.0.4 Device/Sony_LT15i Carrier/Movistar Type/Phone",
       "Connection": "keep-alive"
     },
-    "after": "",
+    "after": null,
     "extract": [
       "user.first_name",
-      "user.picture_url",
-      "user.verification_labels.2"
+      "user.picture_url"
     ]
   }, {
     "name": "login",
     "uri": "https://api.airbnb.com/v1/authorize",
+    "method": "POST",
     "qs": {
       "client_id": "3092nxybyb0otqw18e8nh5nty"
     },
-    "method": "POST",
     "headers": {
+      "content-type": "application/x-www-form-urlencoded",
+      "cache-control": "no-cache",
       "User-Agent": "Airbnb/160610 Android/4.0.4 Device/Sony_LT15i Carrier/Movistar Type/Phone"
     },
     "form": {
       "grant_type": "password",
       "password": "123456",
-      "user": "i1264348@trbvm.com"
-      },
+      "username": "i1264348@trbvm.com"
+    },
     "after": null,
     "extract": [
       "access_token"
