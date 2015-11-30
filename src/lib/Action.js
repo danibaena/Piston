@@ -59,6 +59,7 @@ Action.prototype.buildRequest = function(parsedAction) {
       });
   };
 };
+
 Action.prototype.processArguments = function(parsedActionOptions, parsedActionArguments, requestArguments) {
   var optionsStringified = JSON.stringify(parsedActionOptions);
   var auxiliar;
@@ -87,16 +88,10 @@ Action.prototype.createOptionsObject = function(parsedAction) {
       options[key] = parsedAction[key];
     }
   }
-  options.jar = this.cookieJar;
+  // options.jar = this.cookieJar;
 
   return options;
 };
-// Action.prototype.processArguments = function(string) {
-//   return this.isArgument(parsedAction[key]) ? arguments[parsedAction[key][1]] : parsedAction[key];
-// };
-// Action.prototype.isArgument = function(string) {
-//   return string[0] === '<' && string[string.length - 1] === '>';
-// };
 
 Action.prototype.parseDefaults = function() {
 

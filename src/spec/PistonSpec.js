@@ -30,7 +30,8 @@ describe("Piston", function() {
 
   describe("can create action from keys", function() {
     it("correctly creates properties from a action object", function() {
-      expect(currentPiston.get_user).toEqual(jasmine.any(Function));
+      var functionName = "getUser";
+      expect(currentPiston[functionName]).toEqual(jasmine.any(Function));
     });
   });
 });
