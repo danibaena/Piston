@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://jesgarciamartinez@bitbucket.org/h4-piston/piston.git"
+    "url": "git+https://github.com/H4ckademy-Piston/Piston"
   },
   "keywords": [
     "piston"
   ],
   "author": "Dani and Jesús",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/h4-piston/piston#readme"
+  "homepage": "https://github.com/H4ckademy-Piston/Piston"
 }
