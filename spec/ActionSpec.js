@@ -79,9 +79,5 @@ describe("Action", function() {
       expect(currentAction.createOptionsObject(parsedAction))
         .toEqual(options);
     });
-
-/*    it("in a way that request module for node understands", function() {
-
-    });*/
   });
 });
