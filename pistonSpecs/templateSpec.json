@@ -1,0 +1,32 @@
+{
+  "info": {
+    "title": "Your API",
+    "description": "Whatever",
+    "version": "1.0",
+    "author": "John Doe"
+  },
+  "defaults": {
+
+  },
+  "action": [{
+    "name": "getUser",
+    "uri": "https://api.com/users/{userID}",
+    "method": "GET",
+    "qs": {
+      "whateverQueryString": "you add it here"
+    },
+    "headers": {
+      "host": "",
+      "User-Agent": "",
+      "Connection": ""
+    },
+    "arguments": [
+      "userID"
+    ],
+    "after": null,
+    "extract": [
+      "user.first_name",
+      "user.picture_url"
+    ]
+  }]
+}

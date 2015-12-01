@@ -16,7 +16,7 @@ describe("Piston", function() {
     });
 
     it("Throws an error if file extension is not json", function() {
-      specPath = "../pistonSpecs/airbnb.piston";
+      specPath = __dirname + "/dummys/airbnb.piston";
       expect(function() {
         new Piston(specPath);
       }).toThrow();
