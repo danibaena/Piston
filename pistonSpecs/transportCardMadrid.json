@@ -1,0 +1,30 @@
+{
+  "info": {
+    "title": "Tarjeta Transporte Público Madrid",
+    "description": "Spec to retrieve your card's data from CRTM servers",
+    "version": "1.0",
+    "author": "Daniel Baena"
+  },
+  "action": [{
+    "name": "getCardExpireDate",
+    "url": "http://www.citram.es:50081/VENTAPREPAGOTITULO/VentaPrepagoTitulo.svc",
+    "method": "POST",
+    "qs": {
+      "wsdl": ""
+    },
+    "headers": {
+      "host": "www.citram.es:50081",
+      "cache-control": "no-cache",
+      "Connection": "keep-alive",
+      "content-type": "text/xml; charset=utf-8",
+      "soapaction": "http://tempuri.org/IVentaPrepagoTitulo/ConsultaSaldoTarjeta1"
+    },
+    "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tem=\"http://tempuri.org/\"><soapenv:Header/><soapenv:Body><tem:ConsultaSaldoTarjeta1><tem:sNumeroTP>{userCard}</tem:sNumeroTP><tem:sLenguaje>es</tem:sLenguaje><tem:sTipoApp>APP_SALDO_ANDROID</tem:sTipoApp></tem:ConsultaSaldoTarjeta1></soapenv:Body></soapenv:Envelope>",
+    "arguments": [
+      "userCard"
+    ],
+    "extract": [
+      "s:Envelope.s:Body.0.ConsultaSaldoTarjeta1Response.0.ConsultaSaldoTarjeta1Result.0.a:sResulXMLField.0"
+    ]
+  }]
+}
