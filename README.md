@@ -1,6 +1,6 @@
 # Piston
 
-### Proudly developed with love at h4ckademy for the community, Autumn 2015 Google Campus Madrid
+### Proudly developed with love at h4ckademy for the community, as proposed by Traity.
 
 ## Description
 
@@ -20,7 +20,7 @@ Engine to consume different APIs. With Piston you can write your own specificati
 
 ## Usage
 
-In the folder *examples* you can see how it can be used. In *pistonSpecs* folder you can add you own API spec files. We are providing a template in .json format that can be filled with different data (your own headers, query strings, params to be passed to Piston on execution, the fields of the response you want to grab, etc.)
+In the folder *examples* you can see how it can be used. In *pistonSpecs* folder you can add your own API spec files. We are providing a template in .json format that can be filled with different data (your own headers, query strings, params to be passed to Piston on execution, the fields of the response you want to grab, etc.)
 
 ## Tests
 
@@ -36,3 +36,5 @@ More tests to come in the near future for you test addicts.
 * Jesús García Martínez
 	* [github](https://github.com/jesgarciamartinez)
 	* jes.garcia.martinez@gmail.com
+
+*Autumn 2015 Google Campus Madrid*
