@@ -77,11 +77,33 @@ describe("Action", function() {
       expect(currentAction.createOptionsObject(parsedAction))
         .toEqual(options);
     });
-    
-    it("uses ES6 properly", function(){
-      console.log(`una
-mierda`);
+
+    it("and it detects the content type of the response for JSON", function() {
+      var response = {
+        headers: {
+          "content-type": "application/json; charset=utf-8"
+        },
+        body: "{\"taca\": \"Cobra\"}"
+      };
+      var objectifiedJson = {
+        taca: "Cobra"
+      };
+
+      expect(currentAction.objectify(response)).toEqual(objectifiedJson);
     });
 
+    it("and it detects the content type of the response for XML", function() {
+      var response = {
+        headers: {
+          "content-type": "text/xml; charset=utf-8"
+        },
+        body: "<taca>Cobra</taca>"
+      };
+      var objectifiedXml = {
+        taca: "Cobra"
+      };
+
+      expect(currentAction.objectify(response)).toEqual(objectifiedXml);
+    });
   });
 });

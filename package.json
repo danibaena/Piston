@@ -4,15 +4,18 @@
   "description": "\"An engine for consuming APIs\"",
   "main": "Piston.js",
   "author": "h4ckademy",
-  "contributors": [{
-    "name": "Daniel Baena",
-    "email": "d.baena.hermosa@gmail.com",
-    "url": "https://github.com/danibaena"
-  }, {
-    "name": "Jesús García",
-    "email": "jes.garcia.martinez@gmail.com",
-    "url": "https://github.com/jesgarciamartinez"
-  }],
+  "contributors": [
+    {
+      "name": "Daniel Baena",
+      "email": "d.baena.hermosa@gmail.com",
+      "url": "https://github.com/danibaena"
+    },
+    {
+      "name": "Jesús García",
+      "email": "jes.garcia.martinez@gmail.com",
+      "url": "https://github.com/jesgarciamartinez"
+    }
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -33,6 +36,7 @@
   "homepage": "https://github.com/H4ckademy-Piston/Piston",
   "dependencies": {
     "bluebird": "^3.0.5",
-    "request": "^2.67.0"
+    "request": "^2.67.0",
+    "xml2js": "^0.4.15"
   }
 }
