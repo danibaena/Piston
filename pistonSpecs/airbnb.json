@@ -49,7 +49,7 @@
       "username",
       "pass"
     ],
-    "after": null,
+    "after": "token",
     "extract": [
       "access_token"
     ]
