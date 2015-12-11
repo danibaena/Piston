@@ -8,7 +8,7 @@
   "defaults": {
     "baseUrl": "https://api.spotify.com"
   },
-  "action": [{
+  "actions": [{
     "name": "getAlbum",
     "uri": "https://api.spotify.com/v1/albums/{albumId}",
     "arguments": [
@@ -75,8 +75,8 @@
       "searchQuery"
     ],
     "extract": [
-      "albums.items.0.name",
-      "albums.items.0.id"
+      "albums.items.name",
+      "albums.items.id"
     ]
   }]
 }
