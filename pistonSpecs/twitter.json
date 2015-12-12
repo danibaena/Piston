@@ -8,7 +8,7 @@
   "defaults": {
     "baseUrl": "https://api.twitter.com/1.1/"
   },
-  "action": [{
+  "actions": [{
     "name": "search",
     "arguments": [
       "pathParam.albumId"

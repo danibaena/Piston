@@ -8,7 +8,7 @@
   "defaults": {
     "baseUrl": "https://api.airbnb.com"
   },
-  "action": [{
+  "actions": [{
     "name": "getUser",
     "uri": "https://api.airbnb.com/v2/users/{userID}",
     "method": "GET",

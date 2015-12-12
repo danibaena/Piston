@@ -5,7 +5,7 @@
     "version": "1.0",
     "author": "Daniel Baena"
   },
-  "action": [{
+  "actions": [{
     "name": "getCardExpireDate",
     "url": "http://www.citram.es:50081/VENTAPREPAGOTITULO/VentaPrepagoTitulo.svc",
     "method": "POST",
