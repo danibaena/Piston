@@ -24,10 +24,10 @@
       "userID"
     ],
     "after": null,
-    "extract": [
-      "user.first_name",
-      "user.picture_url"
-    ]
+    "extract": {
+      "name": "user.first_name",
+      "picture": "user.picture_url"
+    }
   }, {
     "name": "login",
     "uri": "https://api.airbnb.com/v1/authorize",
@@ -50,8 +50,6 @@
       "pass"
     ],
     "after": "token",
-    "extract": [
-      "access_token"
-    ]
+    "extract": "access_token"
   }]
 }

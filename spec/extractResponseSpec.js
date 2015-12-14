@@ -163,4 +163,19 @@ describe('can process a response', () => {
     let result = [[['hello', 'world'], ['foo', 'bar']], 'foo'];
     expect(test.extractFromObject(response, specExtract)).toEqual(result);
   });
+
+  // back to basics
+  it('extracts a field from a response (object) with an extract field (string)', function () {
+    let response = {a: 'hello'};
+    let specExtract = 'a';
+    let result = 'hello';
+    expect(test.extractFromObject(response, specExtract)).toEqual(result);
+  });
+
+  it('extracts a field from a response (array) with an extract field (string)', function () {
+    let response = [{a: 'hello'}, {a: 'world'}];
+    let specExtract = 'a';
+    let result = ['hello', 'world'];
+    expect(test.extractFromArray(response, specExtract)).toEqual(result);
+  });
 });
