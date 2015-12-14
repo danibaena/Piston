@@ -8,7 +8,7 @@ describe('Action', function () {
 
   beforeEach(function () {
     var specPath = '../pistonSpecs/airbnb.json';
-    var promise = require('bluebird'); // Use a mock bastard!
+    var promise = require('bluebird');
     var request = require('request');
 
     currentPiston = new Piston(specPath);
@@ -20,16 +20,6 @@ describe('Action', function () {
       var actionName = 'getUser';
       expect(currentActions.parseAction(actionName))
         .toEqual(jasmine.any(Object));
-    });
-
-    it('and extracts the relevant data from a action', function () {
-      var extractedArray = [
-        ['user', 'first_name'],
-        ['user', 'picture_url']
-      ];
-      var actionName = 'getUser';
-      expect(currentActions.extractData(currentActions.parseAction(actionName)))
-        .toEqual(extractedArray);
     });
 
     it('creates a list of the action available in the spec', function () {
@@ -92,7 +82,7 @@ describe('Action', function () {
         taca: 'Cobra'
       };
 
-      expect(currentActions.objectify(response))
+      expect(currentActions.parseResponse(response))
         .toEqual(objectifiedJson);
     });
 
@@ -107,41 +97,8 @@ describe('Action', function () {
         taca: 'Cobra'
       };
 
-      expect(currentActions.objectify(response))
+      expect(currentActions.parseResponse(response))
         .toEqual(objectifiedXml);
     });
   });
-
-  // describe('can process a response,', function () {
-  //   var response = {
-  //     'user': {
-  //       'first_name': 'José Antonio',
-  //       'picture_url': 'https://a2.muscache.com/'
-  //     }
-  //   };
-  //
-  //   const extractedData = [
-  //     ['user', 'first_name'],
-  //     ['user', 'picture_url']
-  //   ];
-  //
-  //   const path = 'user.first_name';
-  //
-  //   it('if extractedData is undefined returns the response', function () {
-  //     var extractedData = undefined;
-  //
-  //     expect(currentActions.processResponse(response, extractedData))
-  //       .toEqual(response);
-  //   });
-  //
-  //   it('if response is an object and there are only nested objects. ' +
-  //   'It returns an array.',
-  //     function () {
-  //       expect(currentActions.getProperties(response, path))
-  //         .toEqual([
-  //           'José Antonio'
-  //         ]);
-  //     });
-  // });
-
 });
