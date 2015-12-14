@@ -25,10 +25,10 @@
     "arguments": [
       "albumId"
     ],
-    "extract": [
-      "items.name",
-      "items.track_number"
-    ]
+    "extract": {
+      "name": "items.name",
+      "number": "items.track_number"
+    }
   }, {
     "name": "getUser",
     "uri": "https://api.spotify.com/v1/users/{userId}",
