@@ -17,11 +17,8 @@
     "arguments": [
       "artistName"
     ],
-    "after": null,
-    "extract": {
-      "hotttnesss": "artist.hotttnesss"
-    }
-  }, {
-
+    "extract": [
+      "response.artist.hotttnesss"
+    ]
   }]
 }
