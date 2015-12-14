@@ -17,27 +17,27 @@ var spotify = new Piston(specPath);
     console.log(spotify.getResponse());
   });*/
 
-/*spotify.getAlbumTracks("0sNOF9WDwhWunNAHPD3Baj")
-  .then(function() {
-    console.log(spotify.getResponse());
-  });*/
-
-/*spotify.getArtist("0OdUWJ0sBjDrqHygGUXeCF")
-  .then(function() {
-    console.log(spotify.getResponse());
-  });*/
-
-/*spotify.getUser("tuggareutangranser")
-  .then(function() {
-    console.log(spotify.getResponse());
-  });*/
-
-/*spotify.searchTrack('Redemption Song')
-  .then(function() {
-    console.log(spotify.getResponse());
-  });*/
-
-spotify.search('Exodus', 'album', 'albums')
+spotify.getAlbumTracks('0sNOF9WDwhWunNAHPD3Baj')
   .then(function () {
     console.log(spotify.getResponse());
   });
+
+  /*spotify.getArtist("0OdUWJ0sBjDrqHygGUXeCF")
+    .then(function() {
+      console.log(spotify.getResponse());
+    });*/
+
+  /*spotify.getUser("tuggareutangranser")
+    .then(function() {
+      console.log(spotify.getResponse());
+    });*/
+
+  /*spotify.searchTrack('Redemption Song')
+    .then(function() {
+      console.log(spotify.getResponse());
+    });*/
+
+  // spotify.search('Exodus', 'album', 'albums')
+  //   .then(function () {
+  //     console.log(spotify.getResponse());
+  //   });
