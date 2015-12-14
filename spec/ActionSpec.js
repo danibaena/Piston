@@ -1,5 +1,3 @@
-'use strict';
-
 describe('Action', function () {
   var Actions = require('../lib/Actions');
   var currentActions;

@@ -65,6 +65,20 @@
       "artists.items.popularity"
     ]
   }, {
+    "name": "searchTrack",
+    "uri": "https://api.spotify.com/v1/search",
+    "qs": {
+      "q": "{searchQuery}",
+      "type": "track"
+    },
+    "arguments": [
+      "searchQuery"
+    ],
+    "extract": [
+      "tracks.items.name",
+      "tracks.items.id"
+    ]
+  }, {
     "name": "searchAlbum",
     "uri": "https://api.spotify.com/v1/search",
     "qs": {
@@ -77,6 +91,22 @@
     "extract": [
       "albums.items.name",
       "albums.items.id"
+    ]
+  }, {
+    "name": "search",
+    "uri": "https://api.spotify.com/v1/search",
+    "qs": {
+      "q": "{searchQuery}",
+      "type": "{searchType}"
+    },
+    "arguments": [
+      "searchQuery",
+      "searchType",
+      "extractType"
+    ],
+    "extract": [
+      "{extractType}.items.name",
+      "{extractType}.items.id"
     ]
   }]
 }
