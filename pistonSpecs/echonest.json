@@ -1,0 +1,27 @@
+{
+  "info": {
+    "title": "Echonest",
+    "description": "API to retrieve different music regarding music industry",
+    "version": "1.0",
+    "author": "h4ckademy"
+  },
+  "actions": [{
+    "name": "hotttnesss",
+    "uri": "http://developer.echonest.com/api/v4/artist/hotttnesss",
+    "method": "GET",
+    "qs": {
+      "api_key": "XONISSQCBSKLM9SLR",
+      "name": "{artistName}",
+      "format": "json"
+    },
+    "arguments": [
+      "artistName"
+    ],
+    "after": null,
+    "extract": {
+      "hotttnesss": "artist.hotttnesss"
+    }
+  }, {
+
+  }]
+}

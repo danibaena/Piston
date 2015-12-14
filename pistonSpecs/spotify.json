@@ -35,10 +35,10 @@
     "arguments": [
       "userId"
     ],
-    "extract": [
-      "display_name",
-      "images.url"
-    ]
+    "extract": {
+      "name": "display_name",
+      "picture": "images.url"
+    }
   }, {
     "name": "getArtist",
     "uri": "https://api.spotify.com/v1/artists/{artistId}",
@@ -60,10 +60,10 @@
     "arguments": [
       "searchQuery"
     ],
-    "extract": [
-      "artists.items.name",
-      "artists.items.popularity"
-    ]
+    "extract": {
+      "name": "artists.items.name",
+      "popularity":"artists.items.popularity"
+    }
   }, {
     "name": "searchTrack",
     "uri": "https://api.spotify.com/v1/search",
