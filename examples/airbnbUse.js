@@ -1,6 +1,7 @@
-var Piston = require('../lib/Piston');
-var specPath = '../pistonSpecs/airbnb.json';
-var airbnb = new Piston(specPath);
+'use strict';
+let Piston = require('../lib/Piston');
+let specPath = '../pistonSpecs/airbnb.json';
+let airbnb = new Piston(specPath);
 
 airbnb.getUser(1)
   .then(function (data) {
