@@ -13,14 +13,12 @@ describe('Action', function () {
   describe('can parse a spec object', function () {
     it('given a function name', function () {
       var actionName = 'getUser';
-      expect(currentActions.parseAction(actionName))
-        .toEqual(jasmine.any(Object));
+      expect(currentActions.parseAction(actionName)).toEqual(jasmine.any(Object));
     });
 
     it('creates a list of the action available in the spec', function () {
       var expectedAction = ['getUser', 'login'];
-      expect(currentActions.list())
-        .toEqual(expectedAction);
+      expect(currentActions.list()).toEqual(expectedAction);
     });
   });
 
@@ -62,8 +60,7 @@ describe('Action', function () {
         }
       };
 
-      expect(currentActions.createOptionsObject(parsedAction))
-        .toEqual(options);
+      expect(currentActions.createOptionsObject(parsedAction)).toEqual(options);
     });
   });
 });

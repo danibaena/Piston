@@ -10,16 +10,12 @@ describe('Piston', function () {
   describe('can use a json file', function () {
     it('Throws an error if file path is invalid', function () {
       specPath = '';
-      expect(function () {
-        new Piston(specPath);
-      }).toThrow();
+      expect(function () {new Piston(specPath);}).toThrow();
     });
 
     it('Throws an error if file extension is not json', function () {
       specPath = __dirname + '/dummys/airbnb.piston';
-      expect(function () {
-        new Piston(specPath);
-      }).toThrow();
+      expect(function () {new Piston(specPath);}).toThrow();
     });
 
     it('Returns a valid object', function () {
