@@ -38,5 +38,11 @@
     "bluebird": "^3.0.5",
     "request": "^2.67.0",
     "xml2js": "^0.4.15"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1"
+  },
+  "engines": {
+    "node": "5.2.0"
   }
 }

@@ -8,15 +8,17 @@ Engine to consume different APIs. With Piston you can write your own specificati
 
 ## Environment
 
-* *node v5.0.0*
+* *node v5.2.0*
 
-* *jasmine v2.3.2*
+* *jasmine v2.4.1*
 
 * Dependencies:
 	
 	* *request v2.67.0*
 
 	* *bluebird v3.0.5*
+
+	* *xml2js v0.4.15*
 
 ## Usage
 
