@@ -1,9 +1,11 @@
+'use strict'
 describe('Piston', function () {
-  var Piston = require('../lib/Piston');
-  var currentPiston;
+  let Piston = require('../lib/Piston');
+  let currentPiston;
+  let specPath;
 
   beforeEach(function () {
-    var specPath = '../pistonSpecs/airbnb.json';
+    specPath = '../pistonSpecs/airbnb.json';
     currentPiston = new Piston(specPath);
   });
 
@@ -26,7 +28,7 @@ describe('Piston', function () {
 
   describe('can create action from keys', function () {
     it('correctly creates properties from a action object', function () {
-      var functionName = 'getUser';
+      let functionName = 'getUser';
       expect(currentPiston[functionName]).toEqual(jasmine.any(Function));
     });
   });
