@@ -11,18 +11,6 @@ describe('Action', function () {
     currentActions = new Actions(specObject, promise, request);
   });
 
-  describe('can parse a spec object', function () {
-    it('given a function name', function () {
-      let actionName = 'getUser';
-      expect(currentActions.parseAction(actionName)).toEqual(jasmine.any(Object));
-    });
-
-    it('creates a list of the action available in the spec', function () {
-      let expectedAction = ['getUser', 'login'];
-      expect(currentActions.list()).toEqual(expectedAction);
-    });
-  });
-
   describe('can build a request', function () {
     it('returning an options object with values from the parsedAction when there is no option field', function () {
       let parsedAction = {
