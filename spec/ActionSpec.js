@@ -1,30 +1,31 @@
+'use strict';
 describe('Action', function () {
-  var Actions = require('../lib/Actions');
-  var currentActions;
+  let Actions = require('../lib/Actions');
+  let currentActions;
 
   beforeEach(function () {
-    var specObject = require('../pistonSpecs/airbnb.json');
-    var promise = require('bluebird');
-    var request = require('request');
+    let specObject = require('../pistonSpecs/airbnb.json');
+    let promise = require('bluebird');
+    let request = require('request');
 
     currentActions = new Actions(specObject, promise, request);
   });
 
   describe('can parse a spec object', function () {
     it('given a function name', function () {
-      var actionName = 'getUser';
+      let actionName = 'getUser';
       expect(currentActions.parseAction(actionName)).toEqual(jasmine.any(Object));
     });
 
     it('creates a list of the action available in the spec', function () {
-      var expectedAction = ['getUser', 'login'];
+      let expectedAction = ['getUser', 'login'];
       expect(currentActions.list()).toEqual(expectedAction);
     });
   });
 
   describe('can build a request', function () {
     it('returning an options object with values from the parsedAction when there is no option field', function () {
-      var parsedAction = {
+      let parsedAction = {
         'name': 'getUser',
         'uri': '7771271',
         'baseUrl': 'https://api.airbnb.com/v2/users/',
@@ -45,7 +46,7 @@ describe('Action', function () {
         ]
       };
 
-      var options = {
+      let options = {
         'uri': '7771271',
         'baseUrl': 'https://api.airbnb.com/v2/users/',
         'qs': {
