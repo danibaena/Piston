@@ -5,7 +5,7 @@
     "version": "1.0",
     "author": "h4ckademy"
   },
-  "actions": [{
+  "actions": {
     "name": "hotttnesss",
     "uri": "http://developer.echonest.com/api/v4/artist/hotttnesss",
     "method": "GET",
@@ -20,5 +20,5 @@
     "extract": [
       "response.artist.hotttnesss"
     ]
-  }]
+  }
 }
