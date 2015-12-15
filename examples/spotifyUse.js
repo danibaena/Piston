@@ -37,7 +37,7 @@ var spotify = new Piston(specPath);
     console.log(data);
   });*/
 
-// spotify.search('Exodus', 'album', 'albums')
-//   .then(function (data) {
-//     console.log(data);
-//   });
+/*spotify.search('Exodus', 'album', 'albums')
+  .then(function (data) {
+    console.log(data);
+  });*/
