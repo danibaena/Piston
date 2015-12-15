@@ -1,8 +1,9 @@
-var Piston = require("../lib/Piston");
-var spotifySpecPath = "../pistonSpecs/spotify.json";
-var spotify = new Piston(spotifySpecPath);
-var echonestSpecPath = "../pistonSpecs/echonest.json";
-var echonest = new Piston(echonestSpecPath);
+'use strict';
+let Piston = require("../lib/Piston");
+let spotifySpecPath = "../pistonSpecs/spotify.json";
+let spotify = new Piston(spotifySpecPath);
+let echonestSpecPath = "../pistonSpecs/echonest.json";
+let echonest = new Piston(echonestSpecPath);
 
 /*echonest.hotttnesss('Bob Marley')
   .then(function (data) {

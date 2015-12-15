@@ -1,11 +1,12 @@
-var Piston = require('../lib/Piston');
-var specPath = '../pistonSpecs/spotify.json';
-var spotify = new Piston(specPath);
+'use strict';
+let Piston = require('../lib/Piston');
+let specPath = '../pistonSpecs/spotify.json';
+let spotify = new Piston(specPath);
 
-/*spotify.searchArtist('Bob Marley & The Wailers')
-  .then(function(data) {
+spotify.searchArtist('Bob Marley & The Wailers')
+  .then(function (data) {
     console.log(data);
-  });*/
+  });
 
 /*spotify.searchAlbum('ok computer')
   .then(function(data) {
