@@ -1,16 +1,13 @@
 describe('Action', function () {
   var Actions = require('../lib/Actions');
   var currentActions;
-  var Piston = require('../lib/Piston');
-  var currentPiston;
 
   beforeEach(function () {
-    var specPath = '../pistonSpecs/airbnb.json';
+    var specObject = require('../pistonSpecs/airbnb.json');
     var promise = require('bluebird');
     var request = require('request');
 
-    currentPiston = new Piston(specPath);
-    currentActions = new Actions(currentPiston.specObject, promise, request);
+    currentActions = new Actions(specObject, promise, request);
   });
 
   describe('can parse a spec object', function () {
@@ -67,36 +64,6 @@ describe('Action', function () {
 
       expect(currentActions.createOptionsObject(parsedAction))
         .toEqual(options);
-    });
-
-    it('and it detects the content type of the response for JSON', function () {
-      var response = {
-        headers: {
-          'content-type': 'application/json; charset=utf-8'
-        },
-        body: '{"taca": "Cobra"}'
-      };
-      var objectifiedJson = {
-        taca: 'Cobra'
-      };
-
-      expect(currentActions.parseResponse(response))
-        .toEqual(objectifiedJson);
-    });
-
-    it('and it detects the content type of the response for XML', function () {
-      var response = {
-        headers: {
-          'content-type': 'text/xml; charset=utf-8'
-        },
-        body: '<taca>Cobra</taca>'
-      };
-      var objectifiedXml = {
-        taca: 'Cobra'
-      };
-
-      expect(currentActions.parseResponse(response))
-        .toEqual(objectifiedXml);
     });
   });
 });
