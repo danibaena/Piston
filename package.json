@@ -36,9 +36,11 @@
   "homepage": "https://github.com/H4ckademy-Piston/Piston",
   "dependencies": {
     "request": "^2.67.0",
-    "xml2js": "^0.4.15"
+    "xml2js": "^0.4.15",
+    "yamljs": "^0.2.4"
   },
   "devDependencies": {
+    "colors": "^1.1.2",
     "jasmine": "^2.4.1"
   },
   "engines": {
