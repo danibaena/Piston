@@ -5,10 +5,9 @@ describe('Action', function () {
 
   beforeEach(function () {
     let specObject = require('../pistonSpecs/airbnb.json');
-    let promise = require('bluebird');
     let request = require('request');
 
-    currentActions = new Actions(specObject, promise, request);
+    currentActions = new Actions(specObject, request);
   });
 
   describe('can build a request', function () {
