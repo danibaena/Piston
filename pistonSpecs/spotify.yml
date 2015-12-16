@@ -1,0 +1,88 @@
+info: 
+    title: "Spotify"
+    description: "API to retrieve info from Spotify"
+    version: "1.0"
+    author: "h4ckademy"
+defaults: 
+    baseUrl: "https://api.spotify.com"
+actions: 
+    - 
+      name: "getAlbum"
+      uri: "https://api.spotify.com/v1/albums/{albumId}"
+      arguments: 
+        - "albumId"
+      extract: 
+        - "name"
+        - "release_date"
+        - "images.url"
+    - 
+      name: "getAlbumTracks"
+      uri: "https://api.spotify.com/v1/albums/{albumId}/tracks"
+      arguments: 
+        - "albumId"
+      extract: 
+        name: "items.name"
+        number: "items.track_number"
+    - 
+      name: "getUser"
+      uri: "https://api.spotify.com/v1/users/{userId}"
+      arguments: 
+        - "userId"
+      extract: 
+        name: "display_name"
+        picture: "images.url"
+    - 
+      name: "getArtist"
+      uri: "https://api.spotify.com/v1/artists/{artistId}"
+      arguments: 
+        - "artistId"
+      extract: 
+        - "name"
+        - "genres"
+        - "images.url"
+    - 
+      name: "searchArtist"
+      uri: "https://api.spotify.com/v1/search"
+      qs: 
+        q: "{searchQuery}"
+        type: "artist"
+      arguments: 
+        - "searchQuery"
+      extract: 
+        name: "artists.items.name"
+        popularity: "artists.items.popularity"
+    - 
+      name: "searchTrack"
+      uri: "https://api.spotify.com/v1/search"
+      qs: 
+        q: "{searchQuery}"
+        type: "track"
+      arguments: 
+        - "searchQuery"
+      extract: 
+        name: "tracks.items.name"
+        id: "tracks.items.id"
+    - 
+      name: "searchAlbum"
+      uri: "https://api.spotify.com/v1/search"
+      qs: 
+        q: "{searchQuery}"
+        type: "album"
+      arguments: 
+        - "searchQuery"
+      extract: 
+        - "albums.items.name"
+        - "albums.items.id"
+    - 
+      name: "search"
+      uri: "https://api.spotify.com/v1/search"
+      qs: 
+        q: "{searchQuery}"
+        type: "{searchType}"
+      arguments: 
+        - "searchQuery"
+        - "searchType"
+        - "extractType"
+      extract: 
+        - "{extractType}.items.name"
+        - "{extractType}.items.id"
