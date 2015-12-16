@@ -5,7 +5,7 @@
     "version": "1.0",
     "author": "h4ckademy"
   },
-  "actions": {
+  "actions": [{
     "name": "hotttnesss",
     "uri": "http://developer.echonest.com/api/v4/artist/hotttnesss",
     "method": "GET",
@@ -17,8 +17,23 @@
     "arguments": [
       "artistName"
     ],
-    "extract": [
-      "response.artist.hotttnesss"
-    ]
-  }
+    "extract": {
+      "hotttnesss":"response.artist.hotttnesss",
+      "id":"response.artist.id"
+    }
+  }, {
+    "name": "images",
+    "uri": "http://developer.echonest.com/api/v4/artist/images",
+    "method": "GET",
+    "qs": {
+      "api_key": "XONISSQCBSKLM9SLR",
+      "id": "{id}",
+      "format": "json",
+      "license": "public-domain"
+    },
+    "arguments": [
+      "id"
+    ],
+    "extract": "response.images.url"
+  }]
 }

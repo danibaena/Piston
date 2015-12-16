@@ -16,8 +16,6 @@ Engine to consume different APIs. With Piston you can write your own specificati
 	
 	* *request v2.67.0*
 
-	* *bluebird v3.0.5*
-
 	* *xml2js v0.4.15*
 
 ## Usage

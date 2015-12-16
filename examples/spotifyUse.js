@@ -3,19 +3,30 @@ let Piston = require('../lib/Piston');
 let specPath = '../pistonSpecs/spotify.json';
 let spotify = new Piston(specPath);
 
-// spotify.searchArtist('Bob Marley & The Wailers', function (err, response, body) {
-//   console.log(body);
-// });
+/*Example with callback*/
 
-// )
-// .then(function (data) {
-//   console.log(data);
-// });
+spotify.searchArtist('Bob Marley & The Wailers', function (err, response, body) {
+  console.log(body);
+});
 
-spotify.searchAlbum('ok computer', 'albums.items.name')
+/*Example with promises and personalized extract field*/
+
+/*spotify.searchArtist('Bob Marley & The Wailers', 'artists.items.followers.total')
   .then(function (data) {
     console.log(data);
-  });
+  });*/
+
+/*Example with promises*/
+
+/*spotify.searchArtist('Bob Marley & The Wailers')
+  .then(function (data) {
+    console.log(data);
+  });*/
+
+/*spotify.searchAlbum('ok computer', 'albums.items.name')
+  .then(function (data) {
+    console.log(data);
+  });*/
 
   /*spotify.getAlbum("0sNOF9WDwhWunNAHPD3Baj")
     .then(function(data) {
@@ -37,7 +48,7 @@ spotify.searchAlbum('ok computer', 'albums.items.name')
       console.log(data);
     });*/
 
-  /*spotify.searchTrack('Redemption Song')
+/*  spotify.searchTrack('Redemption Song')
     .then(function(data) {
       console.log(data);
     });*/
