@@ -23,7 +23,7 @@
     "arguments": [
       "userID"
     ],
-    "after": null,
+    "state": "",
     "extract": {
       "name": "user.first_name",
       "picture": "user.picture_url"
@@ -49,7 +49,7 @@
       "username",
       "pass"
     ],
-    "after": "token",
+    "state": "access_token",
     "extract": "access_token"
   }]
 }
