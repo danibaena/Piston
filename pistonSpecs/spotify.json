@@ -74,10 +74,10 @@
     "arguments": [
       "searchQuery"
     ],
-    "extract": [
-      "tracks.items.name",
-      "tracks.items.id"
-    ]
+    "extract": {
+      "name": "tracks.items.name",
+      "id":"tracks.items.id"
+    }
   }, {
     "name": "searchAlbum",
     "uri": "https://api.spotify.com/v1/search",
