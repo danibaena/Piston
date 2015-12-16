@@ -1,12 +1,11 @@
----
-  info: 
+info: 
     title: "Spotify"
     description: "API to retrieve info from Spotify"
     version: "1.0"
     author: "h4ckademy"
-  defaults: 
+defaults: 
     baseUrl: "https://api.spotify.com"
-  actions: 
+actions: 
     - 
       name: "getAlbum"
       uri: "https://api.spotify.com/v1/albums/{albumId}"
