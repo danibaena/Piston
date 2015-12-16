@@ -39,6 +39,7 @@
     "xml2js": "^0.4.15"
   },
   "devDependencies": {
+    "colors": "^1.1.2",
     "jasmine": "^2.4.1"
   },
   "engines": {
