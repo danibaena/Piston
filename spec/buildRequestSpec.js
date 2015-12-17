@@ -1,14 +1,7 @@
 'use strict';
-describe('Action', function () {
-  let Actions = require('../lib/Actions');
-  let currentActions;
 
-  beforeEach(function () {
-    let specObject = require('../pistonSpecs/airbnb.json');
-    let request = require('request');
-
-    currentActions = new Actions(specObject, request);
-  });
+describe('buildRequest', function () {
+  let buildRequest = require('../lib/buildRequest');
 
   describe('can build a request', function () {
     it('returning an options object with values from the parsedAction when there is no option field', function () {
@@ -48,7 +41,7 @@ describe('Action', function () {
         }
       };
 
-      expect(currentActions.createOptionsObject(parsedAction)).toEqual(options);
+    // expect(currentActions.createOptionsObject(parsedAction)).toEqual(options);
     });
   });
 });

@@ -23,7 +23,7 @@
     "arguments": [
       "userID"
     ],
-    "after": null,
+    "state": null,
     "extract": [
       "user.first_name",
       "user.picture_url"
