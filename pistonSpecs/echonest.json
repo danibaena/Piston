@@ -29,10 +29,11 @@
       "api_key": "XONISSQCBSKLM9SLR",
       "id": "{id}",
       "format": "json",
-      "license": "public-domain"
+      "license": "{license}"
     },
     "arguments": [
-      "id"
+      "id",
+      "license"
     ],
     "extract": "response.images.url"
   }]
