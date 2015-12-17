@@ -5,18 +5,20 @@ let spotifySpecPath = '../pistonSpecs/spotify.json';
 let spotify = new Piston(spotifySpecPath);
 let echonestSpecPath = '../pistonSpecs/echonest.json';
 let echonest = new Piston(echonestSpecPath);
+let song;
 
-/*echonest.hotttnesss('Bob Marley')
-  .then(function (data) {
-    console.log(data);
-  });*/
+let args = process.argv.slice(2);
+if (args.length > 0) {
+  if (args[0].indexOf('Gozadera') < 0) {
+    song = args[0];
+  } else {
+    console.log("\nWhy would you pollute the world with reggaeton, evil basterd!".red);
+    return;
+  }
+} else {
+  song = 'New born';
+}
 
-/*spotify.searchArtist('Bob Marley')
-  .then(function (data) {
-    console.log(data);
-  });*/
-
-let song = 'New born';
 console.log("\nWe're searching the Spotify API for the song:".yellow);
 console.log(song.green);
 spotify.searchTrack(song, 'tracks.items.0.artists.name.0')
