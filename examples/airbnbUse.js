@@ -11,5 +11,4 @@ let airbnb = new Piston(specPath);
 airbnb.login('i1264348@trbvm.com', '123456')
   .then(function (data) {
     console.log('login data: ', data);
-    console.log('state in login: ', airbnb.login._state);
   });

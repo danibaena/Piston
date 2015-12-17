@@ -49,7 +49,6 @@
       "username",
       "pass"
     ],
-    "state": "access_token",
-    "extract": "access_token"
+    "saveState": ["access_token", "generated"]
   }]
 }
