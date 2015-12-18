@@ -1,10 +1,10 @@
 'use strict';
 let colors = require('colors');
 let fs = require('fs');
-let Piston = require('../lib/Piston');
-let spotifySpecPath = '../pistonSpecs/spotify.json';
+let Piston = require('../../lib/Piston');
+let spotifySpecPath = './../pistonSpecs/spotify.json';
 let spotify = new Piston(spotifySpecPath);
-let echonestSpecPath = '../pistonSpecs/echonest.json';
+let echonestSpecPath = './../pistonSpecs/echonest.json';
 let echonest = new Piston(echonestSpecPath);
 let song;
 let license = 'public-domain';
@@ -52,7 +52,7 @@ spotify.searchTrack(song, 'tracks.items.0.artists.name.0')
             });
             result['license'] = license;
 
-            fs.writeFile("./examples/demoDay.json", JSON.stringify(result, null, 2), function (err) {
+            fs.writeFile("./examples/demoDay/demoDay.json", JSON.stringify(result, null, 2), function (err) {
               if (err) {
                 console.log(err);
               } else {
