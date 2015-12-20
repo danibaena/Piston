@@ -3,6 +3,10 @@
 let express = require('express');
 let favicon = require('serve-favicon');
 let app = express();
+let bodyParser = require('body-parser');
+let demoDay = require('./demoDayUse');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(favicon(__dirname + '/public/img/favicon.ico'));
 let port = process.env.PORT || 8080;
@@ -10,15 +14,21 @@ let port = process.env.PORT || 8080;
 
 // routes will go here
 app.get('/', function (req, res) {
-  res.sendFile('index.html', {root:__dirname + '/public'});
+  res.sendFile('index.html', {
+    root: __dirname + '/public'
+  });
 });
 
-app.post('/demoDay', function(req, res) {
-  let song = req.param('song');
-  let license = req.param('license');
-  // let demoDay = require('demoDayUse.js');
+app.post('/demoDay', function (req, res) {
+  let song = req.body.song;
+  let license = req.body.license;
 
-  res.send(song);
+  let callback = function () {
+    let json = require(__dirname + '/public/json/demoDay.json');
+    res.send(json);
+  };
+
+  demoDay(song, license, callback);
 });
 
 // start the server
