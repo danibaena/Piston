@@ -233,3 +233,8 @@
   display: flex;
   margin: 0 auto;
 }
+
+#cc1, #p1, #cc2, #p2 {
+  color: rgb(0, 150, 136);
+  text-shadow: rgba(0, 0, 0, 1) 0px 4px 5px;
+}

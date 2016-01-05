@@ -17,9 +17,9 @@ $("#magic").click(function () {
       $("#img1").attr("src", msg.images[0]);
       $("#img2").attr("src", msg.images[1]);
       $("#cc1").html(msg.artist);
-      $("#p1").html("Hotttness in Echonest: " + msg.hotttnesss);
+      $("#p1").html("Hotttness in Echonest: " + msg.hotttnesss.toFixed(2)*100 + "%");
       $("#cc2").html(msg.artist);
-      $("#p2").html("Hotttness in Echonest: " + msg.hotttnesss);
+      $("#p2").html("Hotttness in Echonest: " + msg.hotttnesss.toFixed(2)*100 + "%");
       $("#hexdots").hide();
       $("#myCarousel").show();
     },
