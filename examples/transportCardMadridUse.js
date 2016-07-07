@@ -1,7 +1,7 @@
 'use strict';
-let Piston = require("../lib/Piston");
+let Pistonify = require("../lib/Pistonify");
 let specPath = "../pistonSpecs/transportCardMadrid.json";
-let transportCardMadrid = new Piston(specPath);
+let transportCardMadrid = new Pistonify(specPath);
 
 transportCardMadrid.getCardExpireDate(2510010062804)
   .then(function(data) {
