@@ -1,7 +1,7 @@
 {
   "name": "pistonify",
-  "version": "1.0.2",
-  "description": "\"An engine for consuming APIs\"",
+  "version": "1.0.3",
+  "description": "An engine for consuming APIs",
   "main": "./lib/Pistonify",
   "author": "h4ckademy",
   "contributors": [
