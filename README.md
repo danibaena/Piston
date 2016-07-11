@@ -1,10 +1,10 @@
-# Piston
+# Pistonify
 
 ### Proudly developed with love at h4ckademy for the community, as proposed by Traity.
 
 ## Description
 
-Engine to consume different APIs. With Piston you can write your own specification for an API of your like and Piston takes care of handling the requests, the errors and do some proccessing on the response expected. It is intended to work with json format responses. We have for now investigated a few APIs and some more will come in the future.
+Engine to consume different APIs. With Pistonify you can write your own specification for an API of your like and Pistonify takes care of handling the requests, the errors and do some proccessing on the response expected. It is intended to work with json format responses. We have for now investigated a few APIs and some more will come in the future.
 
 ## Environment
 
@@ -20,7 +20,7 @@ Engine to consume different APIs. With Piston you can write your own specificati
 
 ## Usage
 
-In the folder *examples* you can see how it can be used. In *pistonSpecs* folder you can add your own API spec files. We are providing a template in .json format that can be filled with different data (your own headers, query strings, params to be passed to Piston on execution, the fields of the response you want to grab, etc.)
+In the folder *examples* you can see how it can be used. In *pistonSpecs* folder you can add your own API spec files. We are providing a template in .json format that can be filled with different data (your own headers, query strings, params to be passed to Pistonify on execution, the fields of the response you want to grab, etc.)
 
 ## Tests
 
