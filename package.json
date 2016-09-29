@@ -37,10 +37,10 @@
   "dependencies": {
     "request": "^2.67.0",
     "xml2js": "^0.4.15",
-    "yamljs": "^0.2.4"
+    "yamljs": "^0.2.4",
+    "bootstrap": "^3.3.6"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.6",
     "colors": "^1.1.2",
     "jasmine": "^2.4.1"
   },
