@@ -36,7 +36,7 @@ module.exports = function (song, license, callback) {
           }
         });
 
-      /*console.log('\nAnd now we are going to check how hot the artist is in Echonest API:'.yellow);
+        /*console.log('\nAnd now we are going to check how hot the artist is in Echonest API:'.yellow);
         echonest.hotttnesss(data)
           .then(function (data) {
             console.log(data.hotttnesss.toString().green);
@@ -78,6 +78,6 @@ module.exports = function (song, license, callback) {
         console.log("\nJSON saved".blue);
         callback();
       }
-    });    
+    });
   }
 };
