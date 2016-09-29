@@ -1,7 +1,7 @@
 'use strict';
-let Piston = require('../lib/Piston');
+let Pistonify = require('../lib/Pistonify');
 let specPath = '../pistonSpecs/spotify.json';
-let spotify = new Piston(specPath);
+let spotify = new Pistonify(specPath);
 
 /*Example with callback*/
 

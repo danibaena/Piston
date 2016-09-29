@@ -1,8 +1,8 @@
 {
-  "name": "piston",
-  "version": "1.0.0",
-  "description": "\"An engine for consuming APIs\"",
-  "main": "Piston.js",
+  "name": "pistonify",
+  "version": "1.0.4",
+  "description": "An engine for consuming APIs",
+  "main": "./lib/Pistonify",
   "author": "h4ckademy",
   "contributors": [
     {

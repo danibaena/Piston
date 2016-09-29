@@ -1,4 +1,4 @@
 'use strict';
-let Piston = require("../lib/Piston");
+let Pistonify = require("../lib/Pistonify");
 let specPath = "../pistonSpecs/airbnb.json";
-let currentPiston = new Piston(specPath);
+let currentPistonify = new Pistonify(specPath);
