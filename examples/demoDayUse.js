@@ -7,14 +7,14 @@ let echonestSpecPath = '../pistonSpecs/echonest.json';
 let echonest = new Pistonify(echonestSpecPath);
 
 /*echonest.hotttnesss('Bob Marley')
-  .then(function (data) {
-    console.log(data);
-  });*/
+ .then(function (data) {
+ console.log(data);
+ });*/
 
 /*spotify.searchArtist('Bob Marley')
-  .then(function (data) {
-    console.log(data);
-  });*/
+ .then(function (data) {
+ console.log(data);
+ });*/
 
 let song = 'New born';
 console.log("\nWe're searching the Spotify API for the song:".yellow);

@@ -1,11 +1,11 @@
 'use strict';
 let colors = require('colors');
 let fs = require('fs');
-let Piston = require('../../lib/Piston');
+let Pistonify = require('../../lib/Pistonify');
 let spotifySpecPath = './../pistonSpecs/spotify.json';
-let spotify = new Piston(spotifySpecPath);
-let echonestSpecPath = './../pistonSpecs/echonest.json';
-let echonest = new Piston(echonestSpecPath);
+let spotify = new Pistonify(spotifySpecPath);
+// let echonestSpecPath = './../pistonSpecs/echonest.json';
+// let echonest = new Pistonify(echonestSpecPath);
 let result = {};
 
 module.exports = function (song, license, callback) {
@@ -21,7 +21,22 @@ module.exports = function (song, license, callback) {
         console.log(data.green);
         result["artist"] = data;
 
-        console.log('\nAnd now we are going to check how hot the artist is in Echonest API:'.yellow);
+        result["hotttnesss"] = data.hotttnesss;
+        result['images'] = [];
+        result['images'][0] = "http://i.imgur.com/H3UIU7g.jpg";
+        result['images'][1] = "http://i.imgur.com/H3UIU7g.jpg";
+        result['license'] = license;
+
+        fs.writeFile("./public/json/demoDay.json", JSON.stringify(result, null, 2), function (err) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("\nJSON saved".blue);
+            callback();
+          }
+        });
+
+      /*console.log('\nAnd now we are going to check how hot the artist is in Echonest API:'.yellow);
         echonest.hotttnesss(data)
           .then(function (data) {
             console.log(data.hotttnesss.toString().green);
@@ -46,7 +61,7 @@ module.exports = function (song, license, callback) {
                   }
                 });
               });
-          });
+          });*/
       });
   } else {
     console.log("\nWhy would you pollute the world with reggaeton, evil basterd!".red);

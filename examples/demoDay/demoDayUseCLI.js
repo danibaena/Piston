@@ -1,11 +1,11 @@
 'use strict';
 let colors = require('colors');
 let fs = require('fs');
-let Piston = require('../../lib/Piston');
+let Pistonify = require('../../lib/Pistonify');
 let spotifySpecPath = './../pistonSpecs/spotify.json';
-let spotify = new Piston(spotifySpecPath);
+let spotify = new Pistonify(spotifySpecPath);
 let echonestSpecPath = './../pistonSpecs/echonest.json';
-let echonest = new Piston(echonestSpecPath);
+let echonest = new Pistonify(echonestSpecPath);
 let song;
 let license = 'public-domain';
 let result = {};

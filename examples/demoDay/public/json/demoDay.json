@@ -1,10 +1,9 @@
 {
-  "song": "Brilliant Disguise",
-  "artist": "Bruce Springsteen",
-  "hotttnesss": 0.774736,
+  "song": "no surprises",
+  "artist": "Radiohead",
   "images": [
-    "http://upload.wikimedia.org/wikipedia/commons/7/73/Kennedy_Center_honorees_2009_WhiteHouse_Photo.jpg",
-    "http://upload.wikimedia.org/wikipedia/en/8/8a/Bruce_Springsteen_and_the_E_Street_Band_1977.jpg"
+    "http://i.imgur.com/H3UIU7g.jpg",
+    "http://i.imgur.com/H3UIU7g.jpg"
   ],
-  "license": "public-domain"
+  "license": "unknown"
 }
