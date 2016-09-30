@@ -1,6 +1,6 @@
 {
   "name": "pistonify",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "An engine for consuming APIs",
   "main": "./lib/Pistonify",
   "author": "h4ckademy",
@@ -17,14 +17,14 @@
     }
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/H4ckademy-Piston/Piston"
+    "url": "https://github.com/danibaena/Pistonify"
   },
   "bugs": {
-    "url": "https://github.com/H4ckademy-Piston/Piston/issues"
+    "url": "https://github.com/danibaena/Pistonify/issues"
   },
   "keywords": [
     "piston",
@@ -33,7 +33,7 @@
     "h4ckademy"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/H4ckademy-Piston/Piston",
+  "homepage": "https://github.com/danibaena/Pistonify",
   "dependencies": {
     "request": "^2.67.0",
     "xml2js": "^0.4.15",
@@ -44,6 +44,6 @@
     "jasmine": "^2.4.1"
   },
   "engines": {
-    "node": "5.2.0"
+    "node": "6.6.0"
   }
 }
