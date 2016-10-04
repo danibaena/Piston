@@ -1,22 +1,13 @@
 'use strict';
 let colors = require('colors');
 let Pistonify = require('../lib/Pistonify');
-let spotifySpecPath = '../pistonSpecs/spotify.json';
+let spotifySpecPath = '../pistonifySpecs/spotify.json';
 let spotify = new Pistonify(spotifySpecPath);
-let echonestSpecPath = '../pistonSpecs/echonest.json';
+let echonestSpecPath = '../pistonifySpecs/echonest.json';
 let echonest = new Pistonify(echonestSpecPath);
 
-/*echonest.hotttnesss('Bob Marley')
-  .then(function (data) {
-    console.log(data);
-  });*/
-
-/*spotify.searchArtist('Bob Marley')
-  .then(function (data) {
-    console.log(data);
-  });*/
-
 let song = 'New born';
+
 console.log("\nWe're searching the Spotify API for the song:".yellow);
 console.log(song.green);
 spotify.searchTrack(song, 'tracks.items.0.artists.name.0')

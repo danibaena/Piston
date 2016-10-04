@@ -7,10 +7,10 @@ describe('buildRequest', function () {
     it('returning an options object with values from the parsedAction when there is no option field', function () {
       let parsedAction = {
         'name': 'getUser',
-        'uri': '7771271',
+        'uri': '123',
         'baseUrl': 'https://api.airbnb.com/v2/users/',
         'qs': {
-          'client_id': '3092nxybyb0otqw18e8nh5nty'
+          'client_id': 'fake'
         },
         'method': 'GET',
         'headers': {
@@ -27,10 +27,10 @@ describe('buildRequest', function () {
       };
 
       let options = {
-        'uri': '7771271',
+        'uri': '123',
         'baseUrl': 'https://api.airbnb.com/v2/users/',
         'qs': {
-          'client_id': '3092nxybyb0otqw18e8nh5nty'
+          'client_id': 'fake'
         },
         'method': 'GET',
         'headers': {
@@ -41,7 +41,12 @@ describe('buildRequest', function () {
         }
       };
 
-    // expect(currentActions.createOptionsObject(parsedAction)).toEqual(options);
+      // TODO rewrite and fix this test
+      // expect(currentActions.createOptionsObject(parsedAction)).toEqual(options);
+    });
+
+    it('several times when called with different options', function () {
+      // TODO Write the test
     });
   });
 });

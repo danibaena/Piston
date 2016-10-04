@@ -13,11 +13,11 @@
     "uri": "https://api.airbnb.com/v2/users/{userID}",
     "method": "GET",
     "qs": {
-      "client_id": "3092nxybyb0otqw18e8nh5nty"
+      "client_id": "yourClientID"
     },
     "headers": {
       "host": "api.airbnb.com",
-      "User-Agent": "Airbnb/160610 Android/4.0.4 Device/Sony_LT15i Carrier/Movistar Type/Phone",
+      "User-Agent": "yourUserAgent",
       "Connection": "keep-alive"
     },
     "arguments": [
@@ -33,12 +33,12 @@
     "uri": "https://api.airbnb.com/v1/authorize",
     "method": "POST",
     "qs": {
-      "client_id": "3092nxybyb0otqw18e8nh5nty"
+      "client_id": "yourClientID"
     },
     "headers": {
       "content-type": "application/x-www-form-urlencoded",
       "cache-control": "no-cache",
-      "User-Agent": "Airbnb/160610 Android/4.0.4 Device/Sony_LT15i Carrier/Movistar Type/Phone"
+      "User-Agent": "yourUserAgent"
     },
     "form": {
       "grant_type": "password",
