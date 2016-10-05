@@ -1,11 +1,11 @@
 'use strict';
+
 describe('Pistonify', function () {
   let Pistonify = require('../lib/Pistonify');
   let currentPistonify;
   let specPath;
 
   describe('can create a valid specObject', function () {
-    
     it('from a json file', function(){
       specPath = '../pistonifySpecs/airbnb.json';
       expect(new Pistonify(specPath)).toEqual(jasmine.any(Object));

@@ -1,4 +1,5 @@
 'use strict';
+
 describe('parseResponse', function () {
   let parseResponse = require('../lib/post-process/parseResponse.js');
 
